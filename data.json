@@ -1,0 +1,7 @@
+[{
+    "name": "Twitter is working yeeeet :p",
+    "comments": ["I love this post", "this is so awesome", "can't relate"],
+    "reactions": {"happy": "numberOfHappy", 
+                  "sad": "numberOfSad", 
+                  "shocked": "numberOfShocked"}
+}]
