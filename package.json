@@ -1,11 +1,15 @@
 {
   "name": "1st-portfolio-project",
   "version": "1.0.0",
-  "description": "Community Journaling",
-  "main": "index.js",
+
+  "description": "Community Journaling Website",
+  "main": "/server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "concurrently \"watchify ./client/assets/script.js -o ./client/assets/bundle.js\" \"python -m http.server\""
+    "test": "jest --watchAll",
+    "start": "node ./server/index.js",
+    "dev": "nodemon ./server/index.js",
+    "coverage": "jest --coverage"
+  "bundle": "concurrently \"watchify ./client/assets/script.js -o ./client/assets/bundle.js\" \"python -m http.server\""
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,9 @@
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
-    "watchify": "^4.0.0"
+    "watchify": "^4.0.0",
+     "jest": "^27.0.6",
+    "nodemon": "^2.0.9",
+    "supertest": "^6.1.3"
   }
 }
