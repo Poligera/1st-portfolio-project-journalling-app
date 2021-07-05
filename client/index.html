@@ -5,22 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Community Journal</title>
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
     <header>
-      <ul>
+      <!-- <ul>
         <li>Link 1</li>
         <li>Link 2</li>
         <li>Link 3</li>
-        <li>Link 4</li>
-      </ul>
+      </ul> -->
     </header>
     <main>
-      <form action="submit">
-        <label for=""></label>
-        <input type="text" />
-        <button type="submit"></button>
-      </form>
+      <section id="form">
+        <form action="submit">
+          <label for=""></label>
+          <textarea type="text"></textarea>
+        </form>
+        <div id="submit">
+          <div id="square"></div>
+          <div id="emojis"></div>
+          <button type="submit" id="form" onclick="post()">ADD</button>
+        </div>
+      </section>
+
+      <!-- ARTICLE element below will be recreated with new content through Javascript "onclick" event every time the button is pressed -->
+      <article>
+        <div class="post">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quod
+          totam nihil cupiditate deserunt ea est labore, corporis, incidunt
+          accusantium soluta eligendi! Eius nostrum tenetur sint repellat?
+          Quidem sequi distinctio molestiae tempora adipisci sed tenetur
+          pariatur id, esse voluptas quos dolor repellendus consequatur hic unde
+          quis ad! Illo, vitae fuga!
+        </div>
+        <div class="reactions"></div>
+      </article>
     </main>
+    <div id="left"></div>
+    <aside id="right"></aside>
   </body>
 </html>
