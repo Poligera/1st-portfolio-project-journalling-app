@@ -44,8 +44,8 @@ app.post('/posts/new', (req, res) => {
 });
 
 
-app.post('posts/comments/new/:id', (req, res) => {
-    console.log('here');
+app.post('/posts/comments/new/:id', (req, res) => {
+   
         const id = parseInt(req.params.id);
         const comment = req.body.comment
         Post.addComment(id, comment)

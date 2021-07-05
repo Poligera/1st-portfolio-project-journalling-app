@@ -62,6 +62,23 @@ const postEntry = () => {
 //     .then(obj => console.log(obj))
 //     .catch(error => console.log(error));
 
+// //===== Add a post
+// const data = {
+//   comment: "hey, I posted this from our client."
+// }
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data)
+//   }
+
+// fetch(`${apiDomain}posts/comments/new/1`, options)
+//   .then(response => response.json())
+//   .then(obj => console.log(obj))
+//   .catch(error => console.log(error));
+
 
 
 
