@@ -20,5 +20,3 @@ describe("random number doesn't return out of index", () => {
         expect(document.querySelector("button").textContent).toBe("I am new");
     });
 });
-
-
