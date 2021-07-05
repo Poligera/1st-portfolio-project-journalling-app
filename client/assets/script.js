@@ -81,16 +81,17 @@ function postEntry(){
   createReactions(testData);
   displayEl(article, divReactions);
   createPostComments(testData);
-  // Displaying all comments if clicked on "collapsible" button:
-  collapsibleBtn.addEventListener('click', e =>
-    displayEl(article, divComments));
   // Every post entry gets an ID to access data stored at server: 
   article.id = testData.id;
   addComment();
 };
 
-// Displaying all comments under each post if button is clicked:
+// Displaying all comments for a post if user clicks on "collapsible" button and hiding them, if needed:
 function addComment() {
+  collapsibleBtn.addEventListener('click', e => {
+    article.contains(divComments)? article.removeChild(divComments): displayEl(article, divComments)
+  });
+  // Creating a cross-looking button to add a comment:
   const addCommentBtn = createEl('button');
   addClass(addCommentBtn, "add");
   addText(addCommentBtn, "+");
@@ -101,7 +102,7 @@ function addComment() {
     main.style.filter = "blur(10px)";
     modal.style.zIndex = "1";
     modal.style.display = "initial";
-  })
+  });
   
   // A preliminary event listener to submit a comment (using "click" for now, for testing):
   postCommentBtn.addEventListener("click", e => {
