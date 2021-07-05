@@ -13,7 +13,7 @@ body {
     "div main aside";
   grid-template-rows: 15% 1fr;
   grid-template-columns: 18% 1fr 18%;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: 'Open Sans', Georgia, "Times New Roman", Times, serif;
 }
 
 header {
@@ -26,12 +26,20 @@ header {
   background-color: rgba(188, 224, 196, 0.952);
   color: white;
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1.5rem;
+}
+
+header h1 {
+  font-family: 'Tangerine';
 }
 
 header hr {
   color: white;
+}
+
+header h5 {
+  font-size: 1rem;
 }
 
 #left {
