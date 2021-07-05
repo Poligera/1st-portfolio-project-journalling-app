@@ -62,5 +62,5 @@ function postEntry(){
   article.appendChild(divReactions);
   createPostComments(testData);
   article.appendChild(divComments);
-  article.id = data.id;
+  article.id = testData.id;
 };
