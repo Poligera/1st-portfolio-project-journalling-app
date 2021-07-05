@@ -1,3 +1,50 @@
 [
-  
+    {
+        "id": 1,
+        "message": "I want to be famous",
+        "reactions": {"smile": 4, "celebrate": 1, "love": 3},
+        "comments": ["this is my post", "I liked it"]
+    },
+    {
+        "id": 2,
+        "message": "This is a placeholder thing",
+        "reactions": {"smile": 5, "celebrate": 3, "love": 5},
+        "comments": ["writing fake comments is hard", "I don't liked it"]
+    },
+    {
+        "id": 3,
+        "message": "I'm only here because I have nothing else to say.",
+        "reactions": {"smile": 12, "celebrate": 42, "love": 70},
+        "comments": ["fish"]
+    },
+    {
+        "id": 4,
+        "message": "I'm test data, nice to meet you.",
+        "reactions": {"smile": 5, "celebrate": 6, "love": 19},
+        "comments": ["you'll change me before we're live", "...right?"]
+    },
+    {
+        "id": 5,
+        "message": "I am but test data",
+        "reactions": {"smile":23, "celebrate": 33, "love": 7},
+        "comments": ["This is not a comment"]
+    },
+    {
+        "id": 6,
+        "message": "Howdy",
+        "reactions": {"smile": 0, "celebrate": 39, "love": 2},
+        "comments": ["🏭", "I liked it"]
+    },
+    {
+        "id": 7,
+        "message": "Boom",
+        "reactions": {"smile": 1, "celebrate": 19, "love": 1},
+        "comments": ["Love it."]
+    },
+    {
+        "id": 8,
+        "message": "I want to be famous too",
+        "reactions": {"smile":7, "celebrate": 12, "love": 17},
+        "comments": ["<3"]
+    }
 ]
