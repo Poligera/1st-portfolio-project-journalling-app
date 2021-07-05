@@ -40,7 +40,10 @@ app.get('/posts/comments/:id', (req, res) => {
 //POST
 
 app.post('/posts/new', (req, res) => {
-    res.send('you asked to add a new post');
+    
+
+    Post.addPost(req.body)
+    res.send(Post.all);
 });
 
 //====== This works
@@ -56,10 +59,12 @@ app.post('posts/comments/new/:Index', (req, res) => {
 
 //UPDATE
 
-app.put('/posts/reactions/update/:Index', (req, res) => {
+app.put('/posts/reactions/update/:id', (req, res) => {
     // TODO get the reaction type from the body.
-    Post.updateReactions()
-    res.send('you asked to update reaction count')
+    const id = parseInt(req.params.id);
+    const targetReaction = req.body.target
+    Post.updateReactions(id, targetReaction)
+    res.send(Post.all)
 })
 
 

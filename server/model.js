@@ -29,7 +29,8 @@ class Post {
   }
   static updateReactions(id, targetReaction) {
     const targetPost = Post.getPost(id);
-    targetPost.reaction[targetReaction] ++
+    console.log(targetPost.message);
+    targetPost.reactions[targetReaction] ++
     return targetPost
   }
 

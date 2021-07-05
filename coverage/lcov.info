@@ -23,7 +23,6 @@ DA:8,1
 DA:9,1
 DA:12,1
 DA:15,1
-DA:16,1
 DA:22,1
 DA:23,2
 DA:26,1
@@ -45,8 +44,8 @@ DA:59,1
 DA:61,0
 DA:62,0
 DA:68,1
-LF:31
-LH:25
+LF:30
+LH:24
 BRDA:29,0,0,1
 BRDA:29,0,1,2
 BRDA:29,1,0,3
@@ -65,7 +64,7 @@ FN:30,(anonymous_5)
 FNF:6
 FNH:4
 FNDA:1,(anonymous_0)
-FNDA:8,(anonymous_1)
+FNDA:7,(anonymous_1)
 FNDA:1,(anonymous_2)
 FNDA:2,(anonymous_3)
 FNDA:0,(anonymous_4)
@@ -75,7 +74,7 @@ DA:5,1
 DA:6,1
 DA:7,1
 DA:8,1
-DA:11,8
+DA:11,7
 DA:14,1
 DA:15,1
 DA:16,1
