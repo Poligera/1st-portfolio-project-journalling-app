@@ -7,6 +7,9 @@ const collapsibleBtn = document.createElement('button');
 const divEmojiBox = document.createElement('div');
 const divComments = document.createElement('div');
 const h4 = document.createElement('h4');
+divComments.className = "comments";
+h4.textContent = "COMMENTS";
+divComments.appendChild(h4);
 //
 const testData = {
   "id": 1,
@@ -37,10 +40,6 @@ function createReactions(data){
 
 // Creating "comments" div for every post:
 function createPostComments(data){
-  divComments.className = "comments";
-  h4.textContent = "COMMENTS";
-  divComments.appendChild(h4);
-  //
   for (const comment of data.comments) {
     const commentParagraph = document.createElement('p');
     commentParagraph.className = "comment-paragraph";
