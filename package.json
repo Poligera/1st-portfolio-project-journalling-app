@@ -1,6 +1,7 @@
 {
   "name": "1st-portfolio-project",
   "version": "1.0.0",
+
   "description": "Community Journaling Website",
   "main": "/server/index.js",
   "scripts": {
@@ -8,6 +9,7 @@
     "start": "node ./server/index.js",
     "dev": "nodemon ./server/index.js",
     "coverage": "jest --coverage"
+  "bundle": "concurrently \"watchify ./client/assets/script.js -o ./client/assets/bundle.js\" \"python -m http.server\""
   },
   "repository": {
     "type": "git",
@@ -21,10 +23,13 @@
   "homepage": "https://github.com/Poligera/1st-portfolio-project#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.9"
   },
   "devDependencies": {
-    "jest": "^27.0.6",
+    "concurrently": "^6.2.0",
+    "watchify": "^4.0.0",
+     "jest": "^27.0.6",
     "nodemon": "^2.0.9",
     "supertest": "^6.1.3"
   }

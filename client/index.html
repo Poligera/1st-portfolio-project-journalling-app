@@ -4,28 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Community Journal</title>
+    <title>My Little Victories | Your Journal</title>
     <link rel="stylesheet" href="./assets/style.css" />
+    <script defer src="assets/bundle.js"></script>
   </head>
   <body>
     <header>
-      <!-- <ul>
-        <li>Link 1</li>
-        <li>Link 2</li>
-        <li>Link 3</li>
-      </ul> -->
+      <h1>My Little Victories</h1>
+      <br />
+      <h5>- your community journal for positive reflection</h5>
     </header>
     <main>
       <section id="form">
         <form action="submit">
           <label for=""></label>
-          <textarea type="text"></textarea>
+          <textarea maxlength="280" type="text"></textarea>
         </form>
-        <div id="submit">
-          <div id="square"></div>
-          <div id="emojis"></div>
-          <button type="submit" id="form" onclick="post()">ADD</button>
-        </div>
+        <button class="add-button" type="submit" id="form" onclick="post()">
+          ADD
+        </button>
       </section>
 
       <!-- ARTICLE element below will be recreated with new content through Javascript "onclick" event every time the button is pressed -->
@@ -38,7 +35,16 @@
           pariatur id, esse voluptas quos dolor repellendus consequatur hic unde
           quis ad! Illo, vitae fuga!
         </div>
-        <div class="reactions"></div>
+        <div class="reactions">
+          <div id="emoji-box"></div>
+          <button type="button" class="collapsible"></button>
+        </div>
+        <div class="comments">
+          <button type="button" class="add">+</button>
+          <h4>COMMENTS</h4>
+          <p class="comment-paragraph">Comment 1 will go here</p>
+          <p class="comment-paragraph">Comment 2 will go here</p>
+        </div>
       </article>
     </main>
     <div id="left"></div>
