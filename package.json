@@ -1,0 +1,29 @@
+{
+  "name": "1st-portfolio-project",
+  "version": "1.0.0",
+  "description": "Community Journaling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "concurrently \"watchify ./client/assets/script.js -o ./client/assets/bundle.js\" \"python -m http.server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poligera/1st-portfolio-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Poligera/1st-portfolio-project/issues"
+  },
+  "homepage": "https://github.com/Poligera/1st-portfolio-project#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.9"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "watchify": "^4.0.0"
+  }
+}
