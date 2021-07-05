@@ -13,7 +13,7 @@ app.get('/', (req, res) => res.send(data))
 
 //ADD TEST DATA
 Post.addPost({message: "hi", comments: ['Comment 1', 'Comment 2']})
-console.log(Post.all)
+// console.log(Post.all)
 
 
 
@@ -24,9 +24,17 @@ app.get('/posts', (req, res) => {
 });
 
 app.get('/posts/comments/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const post = Post.getPost(id);
-    res.send(post.comments);
+    try {
+        const id = parseInt(req.params.id);
+        if (id > Post.all.length || !id) {
+            throw new Error('item not found')
+        }
+        const post = Post.getPost(id);
+        res.send(post.comments);
+    } catch (error) {
+        res.statusCode = 404; 
+        res.send(error.message)
+    }
 });
 
 //POST
@@ -37,11 +45,13 @@ app.post('/posts/new', (req, res) => {
 
 //====== This works
 app.post('posts/comments/new/:Index', (req, res) => {
-    const id = parseInt(req.params.id);
-    Post.addComment(id, "I'm a new comment")
-    const updatedComments = Post.getPost(id)
+    
+        Post.addComment(id, "I'm a new comment") //! hard coded at the moment.
+        const updatedPost = Post.getPost(id)
 
-    res.send(updatedComments);
+        res.send(updatedPost.comments);
+   
+    
 });
 
 //UPDATE

@@ -4,7 +4,7 @@ class Post {
   constructor(data) {
     this.id = data.id;
     this.message = data.message;
-    this.reactions = {happy: 0, sad: 0, shocked: 0};
+    this.reactions = {smile: 0, celebrate: 0, love: 0};
     this.comments = data.comments; //! This is for testing, change to empty array later
   }
   static get all() {
