@@ -1,15 +1,34 @@
 // const helpers = require("./helpers");
 const button = document.querySelector(".add-button");
 const article = document.querySelector("article");
-const divPost = document.createElement('div');
-const divReactions = document.createElement('div');
-const collapsibleBtn = document.createElement('button');
-const divEmojiBox = document.createElement('div');
-const divComments = document.createElement('div');
-const h4 = document.createElement('h4');
-divComments.className = "comments";
+//
+// Function that creates a DOM element:
+function createEl (el){
+  return document.createElement(el)
+};
+
+// 
+// Function that adds a class to a DOM element:
+function addClass(el, className) {
+  return el.className = className;
+}
+
+// 
+// Function that displays a DOM element:
+function displayEl(parent, child) {
+  return parent.appendChild(child)
+}
+
+const divPost = createEl('div');
+const divReactions = createEl('div');
+const collapsibleBtn = createEl('button');
+const divEmojiBox = createEl('div');
+const divComments = createEl('div');
+const h4 = createEl('h4');
+
+addClass(divComments, "comments");
 h4.textContent = "COMMENTS";
-divComments.appendChild(h4);
+displayEl(divComments, h4);
 //
 const testData = {
   "id": 1,
@@ -23,43 +42,45 @@ button.addEventListener("click", postEntry);
 
 // Creating a single post:
 function createPost(data){
-  divPost.className = "post";
+  addClass(divPost, "post");
   divPost.textContent = data.message;
 }
 
 // Creating "reactions" div underneath the post:
 function createReactions(data){
-  divReactions.className = "reactions";
+  addClass(divReactions, "reactions");
   divEmojiBox.id = "emoji-box";
   divEmojiBox.textContent = data.reactions;
-  collapsibleBtn.className = "collapsible";
+  addClass(collapsibleBtn, "collapsible");
   collapsibleBtn.type = "button";
-  divReactions.appendChild(divEmojiBox);
-  divReactions.appendChild(collapsibleBtn);
+  displayEl(divReactions, divEmojiBox);
+  displayEl(divReactions, collapsibleBtn);
 }
 
 // Creating "comments" div for every post:
 function createPostComments(data){
   for (const comment of data.comments) {
-    const commentParagraph = document.createElement('p');
-    commentParagraph.className = "comment-paragraph";
+    const commentParagraph = createEl('p');
+    addClass(commentParagraph, "comment-paragraph");
     commentParagraph.textContent = comment;
-    divComments.appendChild(commentParagraph);
+    displayEl(divComments, commentParagraph);
   };
 
-  const addCommentBtn = document.createElement('button');
-  addCommentBtn.className = "add";
+  const addCommentBtn = createEl('button');
+  addClass(addCommentBtn, "add");
   addCommentBtn.textContent = "+";
-  divComments.appendChild(addCommentBtn);
+  displayEl(divComments, addCommentBtn);
 }
 
 // Displaying a post with all its reactions and comments:
 function postEntry(){
   createPost(testData);
-  article.appendChild(divPost);
+  displayEl(article, divPost);
   createReactions(testData);
-  article.appendChild(divReactions);
+  displayEl(article, divReactions);
   createPostComments(testData);
-  article.appendChild(divComments);
+  // Displaying all comments if clicked on "collapsible" button:
+  collapsibleBtn.addEventListener('click', e =>
+    displayEl(article, divComments));
   article.id = testData.id;
 };
