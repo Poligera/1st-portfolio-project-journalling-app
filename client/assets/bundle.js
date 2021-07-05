@@ -17,6 +17,7 @@ const apiDomain = "http://localhost:3000/"
 
 const form = document.querySelector("form");
 
+
 function initialBindings() {
   form.addEventListener("submit",postEntry);
 }
@@ -26,6 +27,13 @@ function initialBindings() {
 const postEntry = () => {
   console.log("Thank you for posting");
 };
+
+// form.addEventListener("submit", postEntry);
+helpers.test;
+// const postEntry = () => {
+//   console.log("Thank you for posting");
+// };
+
 
 //========= THESE ARE WORKING METHODS TO GET THE DATA FROM OUR API
 
