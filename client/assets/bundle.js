@@ -12,10 +12,10 @@ module.exports = { test, testTwo };
 },{}],2:[function(require,module,exports){
 const helpers = require("./helpers");
 const form = document.querySelector("form");
-form.addEventListener("submit", postEntry);
+// form.addEventListener("submit", postEntry);
 helpers.test;
-const postEntry = () => {
-  console.log("Thank you for posting");
-};
+// const postEntry = () => {
+//   console.log("Thank you for posting");
+// };
 
 },{"./helpers":1}]},{},[2]);

@@ -102,6 +102,8 @@ article {
   font-size: 0.9rem;
   position: relative;
   top: 1%;
+  display: flex;
+  flex-direction: column;
 }
 
 article .post {
