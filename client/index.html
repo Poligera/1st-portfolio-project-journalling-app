@@ -20,7 +20,9 @@
           <label for=""></label>
           <textarea maxlength="280" type="text"></textarea>
         </form>
-        <button type="submit" id="form" onclick="post()">ADD</button>
+        <button class="add-button" type="submit" id="form" onclick="post()">
+          ADD
+        </button>
       </section>
 
       <!-- ARTICLE element below will be recreated with new content through Javascript "onclick" event every time the button is pressed -->
@@ -33,7 +35,16 @@
           pariatur id, esse voluptas quos dolor repellendus consequatur hic unde
           quis ad! Illo, vitae fuga!
         </div>
-        <div class="reactions"></div>
+        <div class="reactions">
+          <div id="emoji-box"></div>
+          <button type="button" class="collapsible"></button>
+        </div>
+        <div class="comments">
+          <button type="button" class="add">+</button>
+          <h4>COMMENTS</h4>
+          <p class="comment-paragraph">Comment 1 will go here</p>
+          <p class="comment-paragraph">Comment 2 will go here</p>
+        </div>
       </article>
     </main>
     <div id="left"></div>
