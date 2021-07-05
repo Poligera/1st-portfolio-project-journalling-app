@@ -45,7 +45,6 @@ header hr {
 main {
   border-left: 2px rgba(188, 224, 196, 0.952) solid;
   border-right: 2px rgba(188, 224, 196, 0.952) solid;
-  overflow-y: scroll;
   grid-area: main;
 }
 
@@ -135,7 +134,7 @@ article .reactions {
   header {
     grid-area: header;
     height: 15vh;
-    font-size: smaller;
+    font-size: 0.7rem;
     line-height: normal;
   }
 
