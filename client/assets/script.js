@@ -1,7 +1,25 @@
 // const helpers = require("./helpers");
 const button = document.querySelector(".add-button");
 const article = document.querySelector("article");
-//
+const divPost = createEl('div');
+const divReactions = createEl('div');
+const collapsibleBtn = createEl('button');
+const divEmojiBox = createEl('div');
+const divComments = createEl('div');
+const h4 = createEl('h4');
+
+addClass(divComments, "comments");
+addText(h4, "COMMENTS");
+displayEl(divComments, h4);
+
+const testData = {
+  "id": 1,
+  "message": "I want to be famous",
+  "reactions": {"smile": 4, "celebrate": 12, "love": 7},
+  "comments": ["this is my post", "I liked it"]
+}
+
+window.onload = postEntry();
 // Function that creates a DOM element:
 function createEl (el){
   return document.createElement(el)
@@ -13,44 +31,30 @@ function addClass(el, className) {
   return el.className = className;
 }
 
+function addText(el, text) {
+  return el.textContent = text;
+}
+
 // 
 // Function that displays a DOM element:
 function displayEl(parent, child) {
   return parent.appendChild(child)
 }
 
-const divPost = createEl('div');
-const divReactions = createEl('div');
-const collapsibleBtn = createEl('button');
-const divEmojiBox = createEl('div');
-const divComments = createEl('div');
-const h4 = createEl('h4');
-
-addClass(divComments, "comments");
-h4.textContent = "COMMENTS";
-displayEl(divComments, h4);
-//
-const testData = {
-  "id": 1,
-  "message": "I want to be famous",
-  "reactions": {"smile": 4, "celebrate": 12, "love": 7},
-  "comments": ["this is my post", "I liked it"]
-}
-//
-button.addEventListener("click", postEntry);
+// button.addEventListener("click", postEntry);
 // helpers.test;
 
 // Creating a single post:
 function createPost(data){
   addClass(divPost, "post");
-  divPost.textContent = data.message;
+  addText(divPost, data.message);
 }
 
 // Creating "reactions" div underneath the post:
 function createReactions(data){
   addClass(divReactions, "reactions");
   divEmojiBox.id = "emoji-box";
-  divEmojiBox.textContent = data.reactions;
+  addText(divEmojiBox, data.reactions);
   addClass(collapsibleBtn, "collapsible");
   collapsibleBtn.type = "button";
   displayEl(divReactions, divEmojiBox);
@@ -62,13 +66,13 @@ function createPostComments(data){
   for (const comment of data.comments) {
     const commentParagraph = createEl('p');
     addClass(commentParagraph, "comment-paragraph");
-    commentParagraph.textContent = comment;
+    addText(commentParagraph, comment);
     displayEl(divComments, commentParagraph);
   };
 
   const addCommentBtn = createEl('button');
   addClass(addCommentBtn, "add");
-  addCommentBtn.textContent = "+";
+  addText(addCommentBtn, "+");
   displayEl(divComments, addCommentBtn);
 }
 
