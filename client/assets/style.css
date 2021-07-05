@@ -17,16 +17,21 @@ body {
 
 header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
   grid-area: header;
-  background-color: rgba(159, 192, 166, 0.952);
+  background-color: rgba(188, 224, 196, 0.952);
+  color: white;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
-header ul li {
-  display: inline-block;
-  list-style: none;
+header hr {
+  color: white;
 }
 
 #left {
@@ -38,8 +43,8 @@ header ul li {
 }
 
 main {
-  border-left: 2px rgba(159, 192, 166, 0.952) solid;
-  border-right: 2px rgba(159, 192, 166, 0.952) solid;
+  border-left: 2px rgba(188, 224, 196, 0.952) solid;
+  border-right: 2px rgba(188, 224, 196, 0.952) solid;
   overflow-y: scroll;
   grid-area: main;
 }
@@ -130,27 +135,18 @@ article .reactions {
   header {
     grid-area: header;
     height: 15vh;
+    font-size: smaller;
+    line-height: normal;
   }
 
   main {
     border: none;
+    overflow-y: scroll;
   }
 
   section {
     width: 95%;
     height: 50%;
-    margin: auto;
-  }
-
-  #square {
-    width: 1rem;
-    height: 1rem;
-    margin: auto;
-  }
-
-  #emojis {
-    height: 1.5rem;
-    width: 8rem;
     margin: auto;
   }
 
