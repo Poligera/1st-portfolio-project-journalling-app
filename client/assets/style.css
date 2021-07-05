@@ -13,6 +13,7 @@ body {
     "div main aside";
   grid-template-rows: 15% 1fr;
   grid-template-columns: 18% 1fr 18%;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 header {
@@ -25,7 +26,6 @@ header {
   background-color: rgba(188, 224, 196, 0.952);
   color: white;
   font-style: italic;
-  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1.5rem;
   line-height: 1.5rem;
 }
@@ -74,23 +74,15 @@ textarea:hover {
   background-color: antiquewhite;
 }
 
-#button {
+button {
   height: 18%;
-  border: 5px solid rgb(238, 236, 236);
+  background-color: rgb(240, 204, 210);
   border-radius: 0 0 12px 12px;
   margin-top: 0.2rem;
-  display: flex;
-}
-
-button {
-  background-color: rgb(240, 204, 210);
-  width: 7rem;
-  margin-right: 2rem;
   border: none;
-  border-radius: 16px;
-  padding: 0.3rem 1.8rem;
-  margin: 0.4rem 1rem 0.4rem auto;
+  width: 100%;
   font-size: 1rem;
+  color: white;
 }
 
 button:hover {
@@ -150,10 +142,7 @@ article .reactions {
   }
 
   button {
-    width: 5rem;
-    height: 1.5rem;
-    margin: auto;
-    font-size: 0.8rem;
+    height: 10%;
   }
 
   article {
