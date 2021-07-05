@@ -8,12 +8,8 @@ const data = require("../data.json")
 app.use(cors());
 app.use(express.json());
 
-// Root get.
-app.get('/', (req, res) => res.send(data))
-
 //ADD TEST DATA
 Post.addPost({message: "hi", comments: ['Comment 1', 'Comment 2']})
-// console.log(Post.all)
 
 
 
@@ -40,15 +36,17 @@ app.get('/posts/comments/:id', (req, res) => {
 //POST
 
 app.post('/posts/new', (req, res) => {
+    console.log(req.body.message)  
     
 
-    Post.addPost(req.body)
-    res.send(Post.all);
+    const updatedPostList = Post.addPost(req.body)
+
+    res.send(updatedPostList);
 });
 
 //====== This works
-app.post('posts/comments/new/:Index', (req, res) => {
-    
+app.post('posts/comments/new/:id', (req, res) => {
+        const id = parseInt(req.params.id);
         Post.addComment(id, "I'm a new comment") //! hard coded at the moment.
         const updatedPost = Post.getPost(id)
 

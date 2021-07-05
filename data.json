@@ -1,6 +1,8 @@
 [
-  
+    {
+    "id": 1,
+    "message": "I want to be famous",
+    "reactions": {"smile": 4, "celebrate": 12, "love": 7},
+    "comments": ["this is my post", "I liked it"]
+    }
 ]
-
-
-

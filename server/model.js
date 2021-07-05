@@ -14,6 +14,7 @@ class Post {
     const id = postData.length + 1;
     const newPost = new Post({id: id, ...data});
     postData.push(newPost);
+    return postData
   }
   static getPost(id) {
     const posts = Post.all;
