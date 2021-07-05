@@ -8,10 +8,6 @@ const data = require("../data.json")
 app.use(cors());
 app.use(express.json());
 
-//ADD TEST DATA
-Post.addPost({message: "hi", comments: ['Comment 1', 'Comment 2']})
-
-
 
 
 //GET
@@ -33,6 +29,9 @@ app.get('/posts/comments/:id', (req, res) => {
     }
 });
 
+
+
+
 //POST
 
 app.post('/posts/new', (req, res) => {
@@ -44,25 +43,26 @@ app.post('/posts/new', (req, res) => {
     res.send(updatedPostList);
 });
 
-//====== This works
-app.post('posts/comments/new/:id', (req, res) => {
-        const id = parseInt(req.params.id);
-        Post.addComment(id, "I'm a new comment") //! hard coded at the moment.
-        const updatedPost = Post.getPost(id)
 
-        res.send(updatedPost.comments);
-   
-    
+app.post('posts/comments/new/:id', (req, res) => {
+    console.log('here');
+        const id = parseInt(req.params.id);
+        const comment = req.body.comment
+        Post.addComment(id, comment)
+        const updatedPost = Post.getPost(id)
+        
+        res.send(updatedPost); 
 });
+
+
 
 //UPDATE
 
 app.put('/posts/reactions/update/:id', (req, res) => {
-    // TODO get the reaction type from the body.
     const id = parseInt(req.params.id);
     const targetReaction = req.body.target
     Post.updateReactions(id, targetReaction)
-    res.send(Post.all)
+    res.send()
 })
 
 

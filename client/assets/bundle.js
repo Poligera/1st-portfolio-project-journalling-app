@@ -29,30 +29,51 @@ const postEntry = () => {
 
 //========= THESE ARE WORKING METHODS TO GET THE DATA FROM OUR API
 
+// //===== Add a post
+// const data = {
+//   message: "hey, I posted this from our client."
+// }
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data)
+//   }
+
+// fetch(`${apiDomain}posts/new`, options)
+//   .then(response => response.json())
+//   .then(obj => console.log(obj))
+//   .catch(error => console.log(error));
 
 
-// Add a post
-const data = {
-  message: "hey, I posted this from our client."
-}
-  const options = {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data)
-  }
 
-fetch(`${apiDomain}posts/new`, options)
-  .then(response => response.json())
-  .then(obj => console.log(obj))
-  .catch(error => console.log(error));
+// //===== Get all data
+// fetch(`${apiDomain}posts`)
+//   .then(response => response.json())
+//   .then(obj => console.log(obj))
+//   .catch(error => console.log(error));
 
-// Get all data
-fetch(`${apiDomain}posts`)
-  .then(response => response.json())
-  .then(obj => console.log(obj))
-  .catch(error => console.log(error));
+
+
+
+// //===== Update reactions
+
+// const data = {target: "smile"}
+
+// const options = {
+//       method: "PUT",
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(data)
+//     }
+  
+//   fetch(`${apiDomain}posts/reactions/update/1`, options)
+//     .then(response => response.json())
+//     .then(obj => console.log(obj))
+//     .catch(error => console.log(error));
+
 
 
 
