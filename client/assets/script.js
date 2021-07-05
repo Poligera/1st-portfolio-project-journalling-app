@@ -3,7 +3,10 @@ const button = document.querySelector(".add-button");
 const article = document.querySelector("article");
 const divPost = document.createElement('div');
 const divReactions = document.createElement('div');
+const collapsibleBtn = document.createElement('button');
+const divEmojiBox = document.createElement('div');
 const divComments = document.createElement('div');
+const h4 = document.createElement('h4');
 //
 const testData = {
   "id": 1,
@@ -16,18 +19,16 @@ button.addEventListener("click", postEntry);
 // helpers.test;
 
 // Creating a single post:
-function createPost(){
+function createPost(data){
   divPost.className = "post";
-  divPost.textContent = testData.message;
+  divPost.textContent = data.message;
 }
 
 // Creating "reactions" div underneath the post:
-function createReactions(){
+function createReactions(data){
   divReactions.className = "reactions";
-  const divEmojiBox = document.createElement('div');
   divEmojiBox.id = "emoji-box";
-  divEmojiBox.textContent = testData.reactions;
-  const collapsibleBtn = document.createElement('button');
+  divEmojiBox.textContent = data.reactions;
   collapsibleBtn.className = "collapsible";
   collapsibleBtn.type = "button";
   divReactions.appendChild(divEmojiBox);
@@ -35,13 +36,12 @@ function createReactions(){
 }
 
 // Creating "comments" div for every post:
-function createPostComments(){
+function createPostComments(data){
   divComments.className = "comments";
-  const h4 = document.createElement('h4');
-  h4.textContent = "COMMENTS"
+  h4.textContent = "COMMENTS";
   divComments.appendChild(h4);
   //
-  for (const comment of testData.comments) {
+  for (const comment of data.comments) {
     const commentParagraph = document.createElement('p');
     commentParagraph.className = "comment-paragraph";
     commentParagraph.textContent = comment;
@@ -55,12 +55,12 @@ function createPostComments(){
 }
 
 // Displaying a post with all its reactions and comments:
-function postEntry(testData){
-  createPost();
+function postEntry(){
+  createPost(testData);
   article.appendChild(divPost);
-  createReactions();
+  createReactions(testData);
   article.appendChild(divReactions);
-  createPostComments();
+  createPostComments(testData);
   article.appendChild(divComments);
-  article.id = testData.id;
+  article.id = data.id;
 };
