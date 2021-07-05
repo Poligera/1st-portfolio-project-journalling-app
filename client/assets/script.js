@@ -1,4 +1,5 @@
 // const helpers = require("./helpers");
+const main = document.querySelector("main");
 const button = document.querySelector(".add-button");
 const article = document.querySelector("article");
 const divPost = createEl('div');
@@ -7,6 +8,8 @@ const collapsibleBtn = createEl('button');
 const divEmojiBox = createEl('div');
 const divComments = createEl('div');
 const h4 = createEl('h4');
+const modal = document.querySelector(".modal");
+const postCommentBtn = document.querySelector(".post-comment")
 
 addClass(divComments, "comments");
 addText(h4, "COMMENTS");
@@ -68,12 +71,7 @@ function createPostComments(data){
     addClass(commentParagraph, "comment-paragraph");
     addText(commentParagraph, comment);
     displayEl(divComments, commentParagraph);
-  };
-
-  const addCommentBtn = createEl('button');
-  addClass(addCommentBtn, "add");
-  addText(addCommentBtn, "+");
-  displayEl(divComments, addCommentBtn);
+  }
 }
 
 // Displaying a post with all its reactions and comments:
@@ -86,5 +84,30 @@ function postEntry(){
   // Displaying all comments if clicked on "collapsible" button:
   collapsibleBtn.addEventListener('click', e =>
     displayEl(article, divComments));
+  // Every post entry gets an ID to access data stored at server: 
   article.id = testData.id;
+  addComment();
 };
+
+// Displaying all comments under each post if button is clicked:
+function addComment() {
+  const addCommentBtn = createEl('button');
+  addClass(addCommentBtn, "add");
+  addText(addCommentBtn, "+");
+  displayEl(divComments, addCommentBtn);
+
+  // A popup form to add a comment and blurred "main" background:
+  addCommentBtn.addEventListener("click", e => {
+    main.style.filter = "blur(10px)";
+    modal.style.zIndex = "1";
+    modal.style.display = "initial";
+  })
+  
+  // A preliminary event listener to submit a comment (using "click" for now, for testing):
+  postCommentBtn.addEventListener("click", e => {
+    e.preventDefault();
+    console.log("Comment has been submitted");
+    modal.style = "initial";
+    main.style = "initial";
+  })
+}

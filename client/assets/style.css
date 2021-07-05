@@ -174,6 +174,35 @@ article .comments button {
   bottom: 0;
 }
 
+.modal {
+  width: 40vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  backdrop-filter: 10px;
+}
+
+.modal form {
+  border: 16px solid rgb(190, 218, 236);
+}
+
+.modal .add-button {
+  background-color: rgba(188, 224, 196, 0.952);
+}
+
+/* .overlay {
+  background-color: blanchedalmond;
+  opacity: 0.5;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+} */
+
+
 /* MEDIA QUERIES */
 /* Portrait and landscape*/
 
