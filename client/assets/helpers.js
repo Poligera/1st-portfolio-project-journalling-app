@@ -1,5 +1,12 @@
 function createPosts(data) {
-    for (let i = data.length - 1; i >= 0; i--) {
+
+    const postList = document.querySelectorAll("article")
+    Array.from(postList)
+    postList.forEach(element => {
+        element.remove()
+    });
+
+      for (let i = data.length - 1; i >= 0; i--) {
         
       const newArticle = document.createElement('article');
         
@@ -35,11 +42,17 @@ function createPosts(data) {
       comments.append(headline);
       comments.append(addCommentBtn)
   
-      data[i].comments.forEach(comment => {
-        const currentComment = document.createElement("p");
-        currentComment.textContent = comment;
-        comments.append(currentComment);
-      });
+      if (!(data[i].comments)) {
+          console.log('no comments');
+      } else {
+        data[i].comments.forEach(comment => {
+            const currentComment = document.createElement("p");
+            currentComment.textContent = comment;
+            comments.append(currentComment);
+          });
+      }
+
+      
   
       newArticle.append(comments);
   
