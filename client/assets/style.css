@@ -6,13 +6,13 @@
 
 body {
   display: grid;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   grid-template-areas:
     "header header header"
     ". main .";
   grid-template-rows: 20% 1fr;
-  grid-template-columns: 18% 1fr 18%;
+  grid-template-columns: 18% auto 18%;
   font-family: "Open Sans", Georgia, "Times New Roman", Times, serif;
   background-color: rgb(240, 240, 240);
 }
@@ -57,7 +57,6 @@ main {
   /* border-left: 2px rgba(188, 224, 196, 0.952) solid;
   border-right: 2px rgba(188, 224, 196, 0.952) solid; */
   grid-area: main;
-  height: 100%;
   background-color: rgb(255, 255, 255);
 }
 

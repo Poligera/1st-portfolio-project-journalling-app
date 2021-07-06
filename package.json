@@ -5,8 +5,8 @@
   "description": "Community Journaling Website",
   "main": "/server/index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose",
     "start": "node ./server/index.js",
+    "test": "jest --watchAll --verbose",
     "dev": "nodemon ./server/index.js",
     "coverage": "jest --coverage",
     "bundle": "concurrently \"watchify ./client/assets/script.js -o ./client/assets/bundle.js\" \"python -m http.server\""
