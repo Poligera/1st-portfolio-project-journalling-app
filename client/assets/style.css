@@ -145,6 +145,9 @@ article .reactions .collapsible:hover {
 article .comments {
   background-color: rgb(231, 229, 229);
   padding: 1rem;
+  display: none;
+  overflow: hidden;
+  transition: 1s;
 }
 
 article .comments h4 {

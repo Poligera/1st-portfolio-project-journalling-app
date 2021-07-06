@@ -120,6 +120,8 @@ function createPosts(data) {
     const button = document.createElement('button');
     button.classList.add("collapsible");
 
+    
+
     reactions.append(emojiBox);
     reactions.append(button);
     newArticle.append(reactions);
@@ -144,6 +146,16 @@ function createPosts(data) {
     });
 
     newArticle.append(comments);
+
+    button.addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = comments
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
 
     newArticle.id = entry.id;
 
