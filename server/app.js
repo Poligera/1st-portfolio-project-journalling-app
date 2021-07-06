@@ -3,6 +3,9 @@ const cors = require("cors");
 const app = express();
 const Post = require("./model");
 const data = require("../data.json");
+const { response } = require("express");
+require('dotenv').config()
+
 
 //MIDDLEWARE
 app.use(cors());

@@ -22,9 +22,14 @@
     <main>
       <section id="form">
         <form action="submit" class="main-form">
-          <label for=""></label>
           <textarea id="newPostText" maxlength="280" type="text"></textarea>
         </form>
+        <section id="gifPopup" class="overlay">
+          <label for="gifSearch">Search for a gif</label>
+          <input type="text" name="gifSearch" id="gifSearch" />
+          <button id="giphySearchButton">Search</button>
+        </section>
+        <button id="addGif">Add Gif</button>
         <button class="add-button" type="submit" id="formSubmit">ADD</button>
       </section>
     </main>

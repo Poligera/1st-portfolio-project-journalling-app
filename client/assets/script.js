@@ -1,6 +1,9 @@
 // const { response } = require("../../server/app");
 const helpers = require("./helpers");
-const apiDomain = "https://my-little-victories.herokuapp.com/"
+const key = require("./giphy")
+const apiDomain = "http://localhost:3000/"
+
+
 
 
 fetch(`${apiDomain}posts`)
@@ -11,11 +14,36 @@ fetch(`${apiDomain}posts`)
 })
 .catch(error => console.log(error));
 
+const addGif = document.querySelector("#addGif");
+
+
+
+addGif.addEventListener('click', (e) => {
+
+  document.getElementById("gifPopup").style.display = "block"
+  
+  
+})
+
+const submitButton = document.getElementById('giphySearchButton');
+
+submitButton.addEventListener("click", (e) => {
+
+  const search = document.getElementById("gifSearch").value
+  
+  fetch(`https://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${search}&limit=20`)
+  .then(response => response.json())
+  .then(obj => {
+    console.log(obj.data[10].url)
+  })
+  .catch(error => console.log(error));
+})
 
 const formSubmit = document.getElementById("formSubmit");
 
 formSubmit.addEventListener("click", (e) => {
  
+  
 
 const data = {
   message: document.getElementById("newPostText").value

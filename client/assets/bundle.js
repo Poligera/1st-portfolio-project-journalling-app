@@ -1,4 +1,8 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const key = "DcKq4PMYQKX8VUMX9eD8wYbAMT8NsRFR";
+
+module.exports =key;
+},{}],2:[function(require,module,exports){
 const apiDomain = "http://localhost:3000/"
 
 function removePreviousPosts() {
@@ -93,10 +97,13 @@ function createPosts(data) {
 
 module.exports = {createPosts, removePreviousPosts};
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 // const { response } = require("../../server/app");
 const helpers = require("./helpers");
-const apiDomain = "https://my-little-victories.herokuapp.com/"
+const key = require("./giphy")
+const apiDomain = "http://localhost:3000/"
+
+
 
 
 fetch(`${apiDomain}posts`)
@@ -107,11 +114,36 @@ fetch(`${apiDomain}posts`)
 })
 .catch(error => console.log(error));
 
+const addGif = document.querySelector("#addGif");
+
+
+
+addGif.addEventListener('click', (e) => {
+
+  document.getElementById("gifPopup").style.display = "block"
+  
+  
+})
+
+const submitButton = document.getElementById('giphySearchButton');
+
+submitButton.addEventListener("click", (e) => {
+
+  const search = document.getElementById("gifSearch").value
+  
+  fetch(`https://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${search}&limit=20`)
+  .then(response => response.json())
+  .then(obj => {
+    console.log(obj.data[10].url)
+  })
+  .catch(error => console.log(error));
+})
 
 const formSubmit = document.getElementById("formSubmit");
 
 formSubmit.addEventListener("click", (e) => {
  
+  
 
 const data = {
   message: document.getElementById("newPostText").value
@@ -241,4 +273,4 @@ function bindings() {
 
 
 
-},{"./helpers":1}]},{},[2]);
+},{"./giphy":1,"./helpers":2}]},{},[3]);

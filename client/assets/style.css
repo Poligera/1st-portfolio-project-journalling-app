@@ -45,12 +45,18 @@ header h5 {
   font-weight: 400;
 }
 
-#left {
-  grid-area: div;
-}
-
-#right {
-  grid-area: aside;
+.overlay {
+  position: fixed;
+  display: none;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
 }
 
 main {
@@ -92,7 +98,18 @@ textarea:hover {
   height: 18%;
   background-color: rgb(240, 204, 210);
   border-radius: 0 0 12px 12px;
+
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+}
+#addGif {
+  height: 25px;
+  background-color: rgb(204, 235, 240);
+
   margin-top: 0.2rem;
+
   border: none;
   width: 100%;
   font-size: 1rem;
