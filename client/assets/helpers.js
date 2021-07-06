@@ -1,3 +1,5 @@
+const apiDomain = "http://localhost:3000/"
+
 function removePreviousPosts() {
     const postList = document.querySelectorAll("article")
     Array.from(postList)
@@ -25,7 +27,30 @@ function createPosts(data) {
       const button = document.createElement('button');
       button.classList.add("collapsible");
   
-      
+
+      // ADD EMOJI ENTRIES 
+      const emojiEntries = Object.keys(data[i].reactions) 
+
+      emojiEntries.forEach(emojiType => {
+
+        const reactionDiv = document.createElement('div');
+        reactionDiv.classList.add(emojiType);
+        reactionDiv.classList.add("emoji")
+        
+        const pContainer = document.createElement("div");
+        pContainer.classList.add('pContainer');
+
+        const reactionCount = document.createElement('p');
+        reactionCount.classList.add(emojiType)
+        reactionCount.textContent = data[i].reactions[emojiType];
+
+        pContainer.append(reactionCount)
+        reactionDiv.append(pContainer)
+        emojiBox.append(reactionDiv);
+
+        
+      });
+    
   
       reactions.append(emojiBox);
       reactions.append(button);
@@ -52,19 +77,8 @@ function createPosts(data) {
           });
       } 
 
-      
-  
       newArticle.append(comments);
   
-      button.addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = comments
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
   
       newArticle.id = data[i].id;
   
@@ -77,4 +91,4 @@ function createPosts(data) {
     
   }
 
-module.exports = {createPosts};
+module.exports = {createPosts, removePreviousPosts};
