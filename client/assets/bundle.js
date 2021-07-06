@@ -1,4 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const apiDomain = "http://localhost:3000/"
+
 function removePreviousPosts() {
     const postList = document.querySelectorAll("article")
     Array.from(postList)
@@ -26,7 +28,61 @@ function createPosts(data) {
       const button = document.createElement('button');
       button.classList.add("collapsible");
   
-      
+
+      // ADD EMOJI ENTRIES 
+      const emojiEntries = Object.keys(data[i].reactions) 
+
+      emojiEntries.forEach(emojiType => {
+
+        const reactionDiv = document.createElement('div');
+        reactionDiv.classList.add(emojiType);
+        reactionDiv.classList.add("emoji")
+        
+        const pContainer = document.createElement("div");
+        pContainer.classList.add('pContainer');
+
+        const reactionCount = document.createElement('p');
+        reactionCount.classList.add(emojiType)
+        reactionCount.textContent = data[i].reactions[emojiType];
+        
+        pContainer.append(reactionCount)
+        reactionDiv.append(pContainer)
+        emojiBox.append(reactionDiv);
+
+        reactionDiv.addEventListener("click", (e) => {
+            // get the parent container
+            const parentArticle = e.target.closest("article");
+            const itemId = parentArticle.id
+            const classList = e.target.classList
+            const reactionType = classList[0]
+
+            if (reactionType === 'pContainer') {
+                return
+            }
+
+            let tally = parseInt(e.target.querySelector('p').textContent);
+            tally++
+            // Update Dom
+            e.target.querySelector("p").textContent = tally;
+          
+            // Update server date
+            const data = {target: reactionType}
+
+            const options = {
+                  method: "PUT",
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(data)
+                }
+            
+              fetch(`${apiDomain}posts/reactions/update/${itemId}`, options)
+                .then(response => response.text())
+                .then()
+                .catch(error => console.log(error));
+        })
+      });
+    
   
       reactions.append(emojiBox);
       reactions.append(button);
@@ -132,24 +188,9 @@ const data = {
 
 
 
-// //===== Update reactions
 
-// const data = {target: "smile"}
 
-// const options = {
-//       method: "PUT",
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data)
-//     }
-  
-//   fetch(`${apiDomain}posts/reactions/update/1`, options)
-//     .then(response => response.json())
-//     .then(obj => console.log(obj))
-//     .catch(error => console.log(error));
-
-// //===== Add a post
+// //===== Add a Comment
 // const data = {
 //   comment: "hey, I posted this from our client."
 // }

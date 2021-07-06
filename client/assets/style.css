@@ -14,6 +14,7 @@ body {
   grid-template-rows: 15% 1fr;
   grid-template-columns: 18% 1fr 18%;
   font-family: "Open Sans", Georgia, "Times New Roman", Times, serif;
+  background-color: rgb(240, 240, 240);
 }
 
 header {
@@ -53,10 +54,11 @@ header h5 {
 }
 
 main {
-  border-left: 2px rgba(188, 224, 196, 0.952) solid;
-  border-right: 2px rgba(188, 224, 196, 0.952) solid;
+  /* border-left: 2px rgba(188, 224, 196, 0.952) solid;
+  border-right: 2px rgba(188, 224, 196, 0.952) solid; */
   grid-area: main;
-  height: 100vh;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
 }
 
 section {
@@ -127,13 +129,17 @@ article .reactions {
   height: 7vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 article .reactions #emoji-box {
   width: 10vw;
   height: 4vh;
-  border: lightgray solid 1px;
-  margin: auto auto auto 1rem;
+  /* border: lightgray solid 1px; */
+  /* margin: auto auto auto 1rem; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 article .reactions .collapsible {
@@ -193,6 +199,26 @@ article .comments button {
 
 .modal .add-button {
   background-color: rgba(188, 224, 196, 0.952);
+}
+.emoji {
+  background-color: burlywood;
+  width: 20px;
+  height: 20px;
+}
+.pContainer {
+  background-color: rgb(231, 143, 143);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+
+  position: relative;
+  right: -10px;
+  top: -5px;
 }
 
 /* MEDIA QUERIES */

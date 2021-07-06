@@ -35,11 +35,7 @@ app.get('/posts/comments/:id', (req, res) => {
 //POST
 
 app.post('/posts/new', (req, res) => {
-    console.log(req.body.message)  
-    
-
     const updatedPostList = Post.addPost(req.body)
-
     res.send(Post.all);
 });
 
@@ -62,7 +58,7 @@ app.put('/posts/reactions/update/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const targetReaction = req.body.target
     Post.updateReactions(id, targetReaction)
-    res.send()
+    res.send('updated')
 })
 
 

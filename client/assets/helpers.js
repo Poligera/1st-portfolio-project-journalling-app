@@ -1,3 +1,5 @@
+const apiDomain = "http://localhost:3000/"
+
 function removePreviousPosts() {
     const postList = document.querySelectorAll("article")
     Array.from(postList)
@@ -25,7 +27,61 @@ function createPosts(data) {
       const button = document.createElement('button');
       button.classList.add("collapsible");
   
-      
+
+      // ADD EMOJI ENTRIES 
+      const emojiEntries = Object.keys(data[i].reactions) 
+
+      emojiEntries.forEach(emojiType => {
+
+        const reactionDiv = document.createElement('div');
+        reactionDiv.classList.add(emojiType);
+        reactionDiv.classList.add("emoji")
+        
+        const pContainer = document.createElement("div");
+        pContainer.classList.add('pContainer');
+
+        const reactionCount = document.createElement('p');
+        reactionCount.classList.add(emojiType)
+        reactionCount.textContent = data[i].reactions[emojiType];
+        
+        pContainer.append(reactionCount)
+        reactionDiv.append(pContainer)
+        emojiBox.append(reactionDiv);
+
+        reactionDiv.addEventListener("click", (e) => {
+            // get the parent container
+            const parentArticle = e.target.closest("article");
+            const itemId = parentArticle.id
+            const classList = e.target.classList
+            const reactionType = classList[0]
+
+            if (reactionType === 'pContainer') {
+                return
+            }
+
+            let tally = parseInt(e.target.querySelector('p').textContent);
+            tally++
+            // Update Dom
+            e.target.querySelector("p").textContent = tally;
+          
+            // Update server date
+            const data = {target: reactionType}
+
+            const options = {
+                  method: "PUT",
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(data)
+                }
+            
+              fetch(`${apiDomain}posts/reactions/update/${itemId}`, options)
+                .then(response => response.text())
+                .then()
+                .catch(error => console.log(error));
+        })
+      });
+    
   
       reactions.append(emojiBox);
       reactions.append(button);

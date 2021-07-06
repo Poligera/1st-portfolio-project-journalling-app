@@ -49,24 +49,9 @@ const data = {
 
 
 
-// //===== Update reactions
 
-// const data = {target: "smile"}
 
-// const options = {
-//       method: "PUT",
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data)
-//     }
-  
-//   fetch(`${apiDomain}posts/reactions/update/1`, options)
-//     .then(response => response.json())
-//     .then(obj => console.log(obj))
-//     .catch(error => console.log(error));
-
-// //===== Add a post
+// //===== Add a Comment
 // const data = {
 //   comment: "hey, I posted this from our client."
 // }
