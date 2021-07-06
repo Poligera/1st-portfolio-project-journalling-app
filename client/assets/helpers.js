@@ -43,7 +43,7 @@ function createPosts(data) {
         const reactionCount = document.createElement('p');
         reactionCount.classList.add(emojiType)
         reactionCount.textContent = data[i].reactions[emojiType];
-        
+
         pContainer.append(reactionCount)
         reactionDiv.append(pContainer)
         emojiBox.append(reactionDiv);
@@ -133,4 +133,4 @@ function createPosts(data) {
     
   }
 
-module.exports = {createPosts};
+module.exports = {createPosts, removePreviousPosts};

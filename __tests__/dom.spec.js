@@ -1,4 +1,5 @@
-const helpers = require("../client/js/helpers");
+const helpers = require("../client/assets/helpers");
+const data = require("../data.json")
 
 describe("header testing", () => {
     beforeAll(() => {
@@ -10,20 +11,11 @@ describe("header testing", () => {
     });
 });
 
-describe("random number doesn't return out of index", () => {
-    beforeAll(() => {
-        document.documentElement.innerHTML = `<button>This is the text</button>`;
-    });
 
-    test("the button text changes", () => {
-        helpers.changeButtonText("I am new");
-        expect(document.querySelector("button").textContent).toBe("I am new");
-    });
-});
 
 describe("body testing", () => {
     beforeAll(() => {
-        document.documentElement.innerHTML = `<main></main>`;
+        document.documentElement.innerHTML = `<body><main><article><article></main></body>`;
     });
     
     test("add posts should produce the right html structure", () => {
@@ -34,19 +26,23 @@ describe("body testing", () => {
             "comments": ["this is my post", "I liked it"]
         },]
         helpers.createPosts(data);
-        expect(document.querySelector("main")).toEqual(`<div class="post">
-        I want to be famous
-        </div>
-      <div class="reactions">
-          <div id="emoji-box"></div>
-          <button type="button" class="collapsible"></button>
-        </div>
-        <div class="comments">
-          <h4>COMMENTS</h4>
-          <p class="comment-paragraph">this is my post</p>
-          <p class="comment-paragraph">I liked it</p>
-          <button type="button" class="add">+</button>
-        </div>`);
+        expect(document.querySelector("article")).toBeTruthy();
     });
-});
 
+    test("only adds one item", () => {
+        const data = [{
+            "id": 1,
+            "message": "I want to be famous",
+            "reactions": {"smile": 4, "celebrate": 1, "love": 3},
+            "comments": ["this is my post", "I liked it"]
+        },]
+        helpers.createPosts(data);
+        expect(document.querySelectorAll("article")).toHaveLength(1)
+    });
+
+    test('removes previous elements', () => {
+        helpers.removePreviousPosts()
+        expect(document.querySelector('article')).toBeFalsy()
+
+    })
+});
