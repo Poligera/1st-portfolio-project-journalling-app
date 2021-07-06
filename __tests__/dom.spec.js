@@ -20,3 +20,33 @@ describe("random number doesn't return out of index", () => {
         expect(document.querySelector("button").textContent).toBe("I am new");
     });
 });
+
+describe("body testing", () => {
+    beforeAll(() => {
+        document.documentElement.innerHTML = `<main></main>`;
+    });
+    
+    test("add posts should produce the right html structure", () => {
+        const data = [{
+            "id": 1,
+            "message": "I want to be famous",
+            "reactions": {"smile": 4, "celebrate": 1, "love": 3},
+            "comments": ["this is my post", "I liked it"]
+        },]
+        helpers.createPosts(data);
+        expect(document.querySelector("main")).toEqual(`<div class="post">
+        I want to be famous
+        </div>
+      <div class="reactions">
+          <div id="emoji-box"></div>
+          <button type="button" class="collapsible"></button>
+        </div>
+        <div class="comments">
+          <h4>COMMENTS</h4>
+          <p class="comment-paragraph">this is my post</p>
+          <p class="comment-paragraph">I liked it</p>
+          <button type="button" class="add">+</button>
+        </div>`);
+    });
+});
+

@@ -40,7 +40,7 @@ app.post('/posts/new', (req, res) => {
 
     const updatedPostList = Post.addPost(req.body)
 
-    res.send(updatedPostList);
+    res.send(Post.all);
 });
 
 

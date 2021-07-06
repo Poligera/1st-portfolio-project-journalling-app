@@ -6,37 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Little Victories | Your Journal</title>
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Tangerine:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="assets/bundle.js"></script>
-    <script defer src="assets/script.js"></script>
+    <!-- <script defer src="assets/bundle.js"></script> -->
   </head>
   <body>
     <header>
       <h1>My Little Victories</h1>
       <br />
-      <h5>- your community journal for positive reflection</h5>
+      <h5>your community journal for positive reflection</h5>
     </header>
     <main>
       <section id="form">
-        <form action="submit">
+        <form action="submit" class="main-form">
           <label for=""></label>
-          <textarea maxlength="280" type="text"></textarea>
+          <textarea id="newPostText" maxlength="280" type="text"></textarea>
         </form>
-        <button class="add-button" type="submit" id="form">
-          ADD
-        </button>
+        <button class="add-button" type="submit" id="formSubmit">ADD</button>
       </section>
 
-      <!-- ARTICLE element below will be recreated with new content through Javascript "onclick" event every time the button is pressed -->
-      <article>
-        <!-- <div class="post">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quod
-          totam nihil cupiditate deserunt ea est labore, corporis, incidunt
-          accusantium soluta eligendi! Eius nostrum tenetur sint repellat?
-          Quidem sequi distinctio molestiae tempora adipisci sed tenetur
-          pariatur id, esse voluptas quos dolor repellendus consequatur hic unde
-          quis ad! Illo, vitae fuga!
+      <!-- <button id="tester"></button> -->
+      <!-- <div class="post">
+          
         </div> -->
-        <!-- <div class="reactions">
+      <!-- <div class="reactions">
           <div id="emoji-box"></div>
           <button type="button" class="collapsible"></button>
         </div>
@@ -46,9 +44,16 @@
           <p class="comment-paragraph">Comment 2 will go here</p>
           <button type="button" class="add">+</button>
         </div> -->
-      </article>
     </main>
     <div id="left"></div>
     <aside id="right"></aside>
+    <section class="modal">
+      <form action="submit">
+        <textarea maxlength="280" type="text"></textarea>
+      </form>
+      <button class="add-button post-comment" type="submit" id="form">
+        ADD COMMENT
+      </button>
+    </section>
   </body>
 </html>
