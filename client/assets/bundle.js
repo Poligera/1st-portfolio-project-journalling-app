@@ -30,28 +30,27 @@ function createPosts(data) {
   
 
       // ADD EMOJI ENTRIES 
-      const emojiEntries = Object.keys(data[i].reactions) 
+      const emojiEntries = Object.keys(data[i].reactions);
 
       emojiEntries.forEach(emojiType => {
 
         const reactionDiv = document.createElement('div');
         reactionDiv.classList.add(emojiType);
-        reactionDiv.classList.add("emoji")
+        reactionDiv.classList.add("emoji");
         
         const pContainer = document.createElement("div");
         pContainer.classList.add('pContainer');
 
         const reactionCount = document.createElement('p');
-        reactionCount.classList.add(emojiType)
+        reactionCount.classList.add(emojiType);
         reactionCount.textContent = data[i].reactions[emojiType];
 
-        pContainer.append(reactionCount)
-        reactionDiv.append(pContainer)
+        pContainer.append(reactionCount);
+        reactionDiv.append(pContainer);
         emojiBox.append(reactionDiv);
 
         
       });
-    
   
       reactions.append(emojiBox);
       reactions.append(button);
@@ -68,7 +67,7 @@ function createPosts(data) {
       addCommentBtn.textContent = "+";
     
       comments.append(headline);
-      comments.append(addCommentBtn)
+      comments.append(addCommentBtn);
   
       if (!!(data[i].comments)) {
         data[i].comments.forEach(comment => {
@@ -83,7 +82,7 @@ function createPosts(data) {
   
       newArticle.id = data[i].id;
   
-      document.querySelector('main').append(newArticle)
+      document.querySelector('main').append(newArticle);
         
     }
     
@@ -97,7 +96,8 @@ module.exports = {createPosts, removePreviousPosts};
 },{}],2:[function(require,module,exports){
 // const { response } = require("../../server/app");
 const helpers = require("./helpers");
-const apiDomain = "http://localhost:3000/";
+
+const apiDomain = "https://my-little-victories.herokuapp.com/";
 
 fetch(`${apiDomain}posts`)
   .then((response) => response.json())
@@ -130,9 +130,8 @@ newCommentText.addEventListener("input", (e) => {
 });
 
 const formSubmit = document.getElementById("formSubmit");
-formSubmit.addEventListener("click", (e) => {
-  console.log(e.target);
 
+formSubmit.addEventListener("click", (e) => {
   const data = {
     message: document.getElementById("newPostText").value,
   };
@@ -147,19 +146,16 @@ formSubmit.addEventListener("click", (e) => {
   fetch(`${apiDomain}posts/new`, options)
     .then((response) => response.json())
     .then((obj) => {
-      console.log(obj);
       helpers.createPosts(obj);
+      bindings();
     })
     .catch((error) => console.log(error));
 });
 
 function addEmojiEvents() {
   const reactionDiv = document.querySelectorAll(".emoji");
-  console.log(reactionDiv);
+
   const emojiArray = Array.from(reactionDiv);
-  console.log(emojiArray);
-  //   const eventTarget = reactionDiv.querySelectorAll('.emoji')
-  // console.log(eventTarget)
 
   emojiArray.forEach((elm) => {
     elm.addEventListener("click", (e) => {
@@ -195,19 +191,34 @@ function addEmojiEvents() {
         .catch((error) => console.log(error));
     });
   });
+
+  // Update server date
+  const data = { target: reactionType };
+
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+
+  fetch(`${apiDomain}posts/reactions/update/${itemId}`, options)
+    .then((response) => response.text())
+    .then()
+    .catch((error) => console.log(error));
 }
 
 function buttonEvents() {
-  //TODO get the buttons and add the events
-
   const buttons = document.querySelectorAll(".collapsible");
   const buttonsArr = Array.from(buttons);
-  console.log(buttons);
 
   buttonsArr.forEach((button) => {
     button.addEventListener("click", function () {
       this.classList.toggle("active");
-      var content = button.closest("div");
+
+      var content = button.closest("article").querySelector(".comments");
+
       if (content.style.display === "block") {
         content.style.display = "none";
       } else {
