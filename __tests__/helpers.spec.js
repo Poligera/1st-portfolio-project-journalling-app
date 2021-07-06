@@ -1,11 +1,21 @@
 const helpers = require("../client/assets/helpers")
 
-describe("helper functions", () => {
-    test('returns 4', () => {
-        expect(helpers.test()).toBe(4)
+describe("body testing", () => {
+    beforeAll(() => {
+        document.documentElement.innerHTML = `<body><main><article><article></main></body>`;
     });
-    test('returns 4', () => {
-        expect(helpers.testTwo()).toBe(4)
+    
+    
+    test("only adds one item", () => {
+        const data = [{
+            "id": 1,
+            "message": "I want to be famous",
+            "reactions": {"smile": 4, "celebrate": 1, "love": 3},
+            "comments": ["this is my post", "I liked it"]
+        },]
+        helpers.createPosts(data);
+        expect(document.querySelectorAll("article")).toHaveLength(1)
     });
 
-})
+    
+});

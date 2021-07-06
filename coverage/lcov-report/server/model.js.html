@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.36% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/22</span>
+                <span class='fraction'>21/21</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/21</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,42 +96,40 @@
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,20 +138,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const postData = require("../data.json");
 &nbsp;
 class Post {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(data) {
-<span class="cstat-no" title="statement not covered" >    this.id = data.id;</span>
-<span class="cstat-no" title="statement not covered" >    this.message = data.message;</span>
-<span class="cstat-no" title="statement not covered" >    this.reactions = {smile: 0, celebrate: 0, love: 0};</span>
-<span class="cstat-no" title="statement not covered" >    this.comments = data.comments; </span>//! This is for testing, change to empty array later
+  constructor(data) {
+    this.id = data.id;
+    this.message = data.message;
+    this.reactions = {smile: 0, celebrate: 0, love: 0};
+    this.comments = data.comments; //! This is for testing, change to empty array later
   }
   static get all() {
     return postData
   }
-<span class="fstat-no" title="function not covered" >  st</span>atic addPost(data) {
-    const id = <span class="cstat-no" title="statement not covered" >postData.length + 1;</span>
-    const newPost = <span class="cstat-no" title="statement not covered" >new Post({id: id, ...data});</span>
-<span class="cstat-no" title="statement not covered" >    postData.push(newPost);</span>
-<span class="cstat-no" title="statement not covered" >    return postData</span>
+  static addPost(data) {
+    const id = postData.length + 1;
+    const newPost = new Post({id: id, ...data});
+    postData.push(newPost);
+    return Post.all
   }
   static getPost(id) {
     const posts = Post.all;
@@ -163,15 +161,14 @@ class Post {
       }
     }
   }
-<span class="fstat-no" title="function not covered" >  st</span>atic addComment(id, comment) {
-    const targetPost = <span class="cstat-no" title="statement not covered" >Post.getPost(id);</span>
-<span class="cstat-no" title="statement not covered" >    targetPost.comments.push(comment)</span>
+  static addComment(id, comment) {
+    const targetPost = Post.getPost(id);
+    targetPost.comments.push(comment)
   }
-<span class="fstat-no" title="function not covered" >  st</span>atic updateReactions(id, targetReaction) {
-    const targetPost = <span class="cstat-no" title="statement not covered" >Post.getPost(id);</span>
-<span class="cstat-no" title="statement not covered" >    console.log(targetPost.message);</span>
-<span class="cstat-no" title="statement not covered" >    targetPost.reactions[targetReaction] ++</span>
-<span class="cstat-no" title="statement not covered" >    return targetPost</span>
+  static updateReactions(id, targetReaction) {
+    const targetPost = Post.getPost(id);
+    targetPost.reactions[targetReaction] ++
+    return targetPost
   }
 &nbsp;
 }
@@ -184,7 +181,7 @@ module.exports = Post;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jul 05 2021 17:06:35 GMT+0100 (British Summer Time)
+                at Tue Jul 06 2021 14:22:37 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
