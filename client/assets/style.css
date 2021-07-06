@@ -10,7 +10,7 @@ body {
   width: 100vw;
   grid-template-areas:
     "header header header"
-    "div main aside";
+    ". main .";
   grid-template-rows: 20% 1fr;
   grid-template-columns: 18% 1fr 18%;
   font-family: "Open Sans", Georgia, "Times New Roman", Times, serif;
