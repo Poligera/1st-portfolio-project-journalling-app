@@ -62,7 +62,7 @@ main {
 
 section {
   width: 70%;
-  height: 20%;
+  height: 40%;
   margin: 3rem auto 0;
 }
 
@@ -86,6 +86,16 @@ form textarea {
 
 textarea:hover {
   background-color: antiquewhite;
+}
+
+#charCounterPost,
+#charCounterComment {
+  height: 1rem;
+  color: rgb(69, 73, 95);
+  font-size: 0.8rem;
+  text-align: right;
+  margin-right: 1rem;
+  font-style: italic;
 }
 
 .add-button {

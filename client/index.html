@@ -21,6 +21,7 @@
     </header>
     <main>
       <section id="form">
+        <div id="charCounterPost">280 characters remaining</div>
         <form action="submit" class="main-form">
           <label for=""></label>
           <textarea id="newPostText" maxlength="280" type="text"></textarea>
@@ -30,8 +31,9 @@
     </main>
 
     <section class="modal">
+      <div id="charCounterComment">280 characters remaining</div>
       <form action="submit">
-        <textarea maxlength="280" type="text"></textarea>
+        <textarea id="newCommentText" maxlength="280" type="text"></textarea>
       </form>
       <button class="add-button post-comment" type="submit" id="form">
         ADD COMMENT

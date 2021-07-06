@@ -1,7 +1,6 @@
 {
   "name": "1st-portfolio-project",
   "version": "1.0.0",
-
   "description": "Community Journaling Website",
   "main": "/server/index.js",
   "scripts": {
@@ -13,7 +12,7 @@
   },
   "jest": {
     "testEnvironment": "jsdom"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Poligera/1st-portfolio-project.git"
