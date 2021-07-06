@@ -96,7 +96,7 @@ module.exports = {createPosts, removePreviousPosts};
 },{}],2:[function(require,module,exports){
 // const { response } = require("../../server/app");
 const helpers = require("./helpers");
-const apiDomain = "http://localhost:3000/"
+const apiDomain = "https://my-little-victories.herokuapp.com/"
 
 
 fetch(`${apiDomain}posts`)
