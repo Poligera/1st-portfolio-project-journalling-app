@@ -93,7 +93,8 @@ function buttonEvents() {
   buttonsArr.forEach(button => {
     button.addEventListener("click", function() {
       this.classList.toggle("active");
-      var content = button.closest('div')
+      console.log(button.closest('div'))
+      var content = button.closest('article').querySelector('.comments')
       if (content.style.display === "block") {
         content.style.display = "none";
       } else {
