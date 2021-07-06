@@ -48,38 +48,7 @@ function createPosts(data) {
         reactionDiv.append(pContainer)
         emojiBox.append(reactionDiv);
 
-        reactionDiv.addEventListener("click", (e) => {
-            // get the parent container
-            const parentArticle = e.target.closest("article");
-            const itemId = parentArticle.id
-            const classList = e.target.classList
-            const reactionType = classList[0]
-
-            if (reactionType === 'pContainer') {
-                return
-            }
-
-            let tally = parseInt(e.target.querySelector('p').textContent);
-            tally++
-            // Update Dom
-            e.target.querySelector("p").textContent = tally;
-          
-            // Update server date
-            const data = {target: reactionType}
-
-            const options = {
-                  method: "PUT",
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(data)
-                }
-            
-              fetch(`${apiDomain}posts/reactions/update/${itemId}`, options)
-                .then(response => response.text())
-                .then()
-                .catch(error => console.log(error));
-        })
+        
       });
     
   
@@ -108,19 +77,8 @@ function createPosts(data) {
           });
       } 
 
-      
-  
       newArticle.append(comments);
   
-      button.addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = comments
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
   
       newArticle.id = data[i].id;
   
