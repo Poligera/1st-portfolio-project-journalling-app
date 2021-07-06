@@ -114,6 +114,7 @@ function addEmojiEvents() {
 }
 
 function buttonEvents() {
+  // ALL COLLAPSIBLE BUTTONS THAT DISPLAY COMMENTS UNDER EACH POST IF PRESSED:
   const buttons = document.querySelectorAll(".collapsible");
   const buttonsArr = Array.from(buttons);
 
@@ -128,6 +129,20 @@ function buttonEvents() {
       } else {
         content.style.display = "block";
       }
+    });
+  });
+
+  // ALL ADD-COMMENT-BUTTONS THAT DISPLAY A POPUP MODAL WINDOW:
+  const addCommentsButtons = document.querySelectorAll(".add-comment-button");
+  const addCommentsBtnArr = Array.from(addCommentsButtons);
+
+  addCommentsBtnArr.forEach((button) => {
+    button.addEventListener("click", () => {
+      this.classList.toggle("active");
+      const modalPostComment = document.querySelector(".modal");
+      modalPostComment.style.display === "block"
+        ? (modalPostComment.style.display = "none")
+        : (modalPostComment.style.display = "block");
     });
   });
 }

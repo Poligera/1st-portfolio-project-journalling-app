@@ -183,7 +183,7 @@ article .comments .comment-paragraph {
   margin: 1.5rem 0;
 }
 
-article .comments button {
+article .comments .add-comment-button {
   background-color: rgb(231, 229, 229);
   border: none;
   font-size: 2rem;
