@@ -1,11 +1,13 @@
-function createPosts(data) {
-
+function removePreviousPosts() {
     const postList = document.querySelectorAll("article")
     Array.from(postList)
     postList.forEach(element => {
         element.remove()
     });
+}
 
+function createPosts(data) {
+    removePreviousPosts()
       for (let i = data.length - 1; i >= 0; i--) {
         
       const newArticle = document.createElement('article');
@@ -42,15 +44,13 @@ function createPosts(data) {
       comments.append(headline);
       comments.append(addCommentBtn)
   
-      if (!(data[i].comments)) {
-          console.log('no comments');
-      } else {
+      if (!!(data[i].comments)) {
         data[i].comments.forEach(comment => {
             const currentComment = document.createElement("p");
             currentComment.textContent = comment;
             comments.append(currentComment);
           });
-      }
+      } 
 
       
   

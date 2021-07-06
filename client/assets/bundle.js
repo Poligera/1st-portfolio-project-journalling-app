@@ -1,12 +1,14 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-function createPosts(data) {
-
+function removePreviousPosts() {
     const postList = document.querySelectorAll("article")
     Array.from(postList)
     postList.forEach(element => {
         element.remove()
     });
+}
 
+function createPosts(data) {
+    removePreviousPosts()
       for (let i = data.length - 1; i >= 0; i--) {
         
       const newArticle = document.createElement('article');
@@ -43,15 +45,13 @@ function createPosts(data) {
       comments.append(headline);
       comments.append(addCommentBtn)
   
-      if (!(data[i].comments)) {
-          console.log('no comments');
-      } else {
+      if (!!(data[i].comments)) {
         data[i].comments.forEach(comment => {
             const currentComment = document.createElement("p");
             currentComment.textContent = comment;
             comments.append(currentComment);
           });
-      }
+      } 
 
       
   
