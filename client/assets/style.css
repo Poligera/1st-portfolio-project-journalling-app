@@ -13,7 +13,7 @@ body {
     "div main aside";
   grid-template-rows: 15% 1fr;
   grid-template-columns: 18% 1fr 18%;
-  font-family: 'Open Sans', Georgia, "Times New Roman", Times, serif;
+  font-family: "Open Sans", Georgia, "Times New Roman", Times, serif;
 }
 
 header {
@@ -32,7 +32,7 @@ header {
 }
 
 header h1 {
-  font-family: 'Tangerine';
+  font-family: "Tangerine";
 }
 
 header hr {
@@ -61,7 +61,7 @@ main {
 
 section {
   width: 70%;
-  height: 40%;
+  height: 20%;
   margin: 3rem auto 0;
 }
 
@@ -104,7 +104,7 @@ button:hover {
 
 article {
   width: 70%;
-  min-height: 25%;
+  height: auto;
   display: grid;
   grid-template-rows: 1.5fr 1fr;
   margin: 30px auto 15px auto;
@@ -195,7 +195,6 @@ article .comments button {
   background-color: rgba(188, 224, 196, 0.952);
 }
 
-
 /* MEDIA QUERIES */
 /* Portrait and landscape*/
 
@@ -257,7 +256,7 @@ article .comments button {
     height: auto;
     margin-top: 3vh;
   }
-  
+
   article .reactions {
     padding-bottom: 1rem;
     height: 8vh;
@@ -268,9 +267,7 @@ article .comments button {
     height: 5vh;
     margin: 0.4rem 1rem;
     text-align: center;
-    
   }
-
 
   article .reactions .collapsible {
     height: 4vh;
@@ -285,8 +282,6 @@ article .comments button {
   .modal form {
     border: 5px solid rgb(190, 218, 236);
   }
-
-  
 }
 
 /* Landscape only */

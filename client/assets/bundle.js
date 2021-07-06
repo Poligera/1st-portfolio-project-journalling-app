@@ -10,7 +10,6 @@
 module.exports = {};
 
 },{}],2:[function(require,module,exports){
-
 // const { response } = require("../../server/app");
 const helpers = require("./helpers");
 
@@ -29,6 +28,7 @@ function initialBindings() {
 // };
 
 //========= THESE ARE WORKING METHODS TO GET THE DATA FROM OUR API
+
 
 // //===== Add a post
 // const data = {
