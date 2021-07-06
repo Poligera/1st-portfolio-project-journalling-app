@@ -11,7 +11,7 @@ body {
   grid-template-areas:
     "header header header"
     "div main aside";
-  grid-template-rows: 15% 1fr;
+  grid-template-rows: 20% 1fr;
   grid-template-columns: 18% 1fr 18%;
   font-family: "Open Sans", Georgia, "Times New Roman", Times, serif;
   background-color: rgb(240, 240, 240);
@@ -22,7 +22,6 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  align-content: center;
   text-align: center;
   grid-area: header;
   background-color: rgba(188, 224, 196, 0.952);
@@ -34,6 +33,7 @@ header {
 
 header h1 {
   font-family: "Tangerine";
+  margin-bottom: 10px;
 }
 
 header hr {

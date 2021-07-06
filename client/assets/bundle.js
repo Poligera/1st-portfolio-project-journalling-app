@@ -109,9 +109,9 @@ fetch(`${apiDomain}posts`)
 
 
 const formSubmit = document.getElementById("formSubmit");
+
 formSubmit.addEventListener("click", (e) => {
-  console.log(e.target)
-  console.log()
+ 
 
 const data = {
   message: document.getElementById("newPostText").value
@@ -127,19 +127,18 @@ const data = {
   fetch(`${apiDomain}posts/new`, options)
   .then(response => response.json())
   .then(obj => {
-    console.log(obj)
-    helpers.createPosts(obj)
+    helpers.createPosts(obj);
+    bindings()
   })
   .catch(error => console.log(error));
 })
 
 function addEmojiEvents() {
   const reactionDiv = document.querySelectorAll(".emoji")
-  console.log(reactionDiv)
+
   const emojiArray = Array.from(reactionDiv)
-  console.log(emojiArray);
-//   const eventTarget = reactionDiv.querySelectorAll('.emoji')
-// console.log(eventTarget)
+
+
 
 emojiArray.forEach(elm => {
   elm.addEventListener("click", (e) => {
@@ -180,16 +179,12 @@ emojiArray.forEach(elm => {
 }
 
 function buttonEvents() {
-  //TODO get the buttons and add the events
-
   const buttons = document.querySelectorAll('.collapsible')
   const buttonsArr = Array.from(buttons);
-  console.log(buttons)
 
   buttonsArr.forEach(button => {
     button.addEventListener("click", function() {
       this.classList.toggle("active");
-      console.log(button.closest('div'))
       var content = button.closest('article').querySelector('.comments')
       if (content.style.display === "block") {
         content.style.display = "none";
