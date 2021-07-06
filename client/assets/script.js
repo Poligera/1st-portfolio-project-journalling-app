@@ -1,114 +1,154 @@
-// const helpers = require("./helpers");
-const main = document.querySelector("main");
-const button = document.querySelector(".add-button");
-const article = document.querySelector("article");
-const divPost = createEl('div');
-const divReactions = createEl('div');
-const collapsibleBtn = createEl('button');
-const divEmojiBox = createEl('div');
-const divComments = createEl('div');
-const h4 = createEl('h4');
-const modal = document.querySelector(".modal");
-const postCommentBtn = document.querySelector(".post-comment")
+// const { response } = require("../../server/app");
+const helpers = require("./helpers");
 
-addClass(divComments, "comments");
-addText(h4, "COMMENTS");
-displayEl(divComments, h4);
+const apiDomain = "http://localhost:3000/"
 
-const testData = {
-  "id": 1,
-  "message": "I want to be famous",
-  "reactions": {"smile": 4, "celebrate": 12, "love": 7},
-  "comments": ["this is my post", "I liked it"]
+const form = document.querySelector("form");
+
+function initialBindings() {
+  form.addEventListener("submit",postEntry);
 }
 
-window.onload = postEntry();
-// Function that creates a DOM element:
-function createEl (el){
-  return document.createElement(el)
-};
-
-// 
-// Function that adds a class to a DOM element:
-function addClass(el, className) {
-  return el.className = className;
-}
-
-function addText(el, text) {
-  return el.textContent = text;
-}
-
-// 
-// Function that displays a DOM element:
-function displayEl(parent, child) {
-  return parent.appendChild(child)
-}
-
-// button.addEventListener("click", postEntry);
 // helpers.test;
 
-// Creating a single post:
-function createPost(data){
-  addClass(divPost, "post");
-  addText(divPost, data.message);
-}
+// const postEntry = () => {
+//   console.log("Thank you for posting");
+// };
 
-// Creating "reactions" div underneath the post:
-function createReactions(data){
-  addClass(divReactions, "reactions");
-  divEmojiBox.id = "emoji-box";
-  addText(divEmojiBox, data.reactions);
-  addClass(collapsibleBtn, "collapsible");
-  collapsibleBtn.type = "button";
-  displayEl(divReactions, divEmojiBox);
-  displayEl(divReactions, collapsibleBtn);
-}
+//========= THESE ARE WORKING METHODS TO GET THE DATA FROM OUR API
 
-// Creating "comments" div for every post:
-function createPostComments(data){
-  for (const comment of data.comments) {
-    const commentParagraph = createEl('p');
-    addClass(commentParagraph, "comment-paragraph");
-    addText(commentParagraph, comment);
-    displayEl(divComments, commentParagraph);
-  }
-}
 
-// Displaying a post with all its reactions and comments:
-function postEntry(){
-  createPost(testData);
-  displayEl(article, divPost);
-  createReactions(testData);
-  displayEl(article, divReactions);
-  createPostComments(testData);
-  // Every post entry gets an ID to access data stored at server: 
-  article.id = testData.id;
-  addComment();
-};
+// //===== Add a post
+// const data = {
+//   message: "hey, I posted this from our client."
+// }
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data)
+//   }
 
-// Displaying all comments for a post if user clicks on "collapsible" button and hiding them, if needed:
-function addComment() {
-  collapsibleBtn.addEventListener('click', e => {
-    article.contains(divComments)? article.removeChild(divComments): displayEl(article, divComments)
-  });
-  // Creating a cross-looking button to add a comment:
-  const addCommentBtn = createEl('button');
-  addClass(addCommentBtn, "add");
-  addText(addCommentBtn, "+");
-  displayEl(divComments, addCommentBtn);
+// fetch(`${apiDomain}posts/new`, options)
+//   .then(response => response.json())
+//   .then(obj => console.log(obj))
+//   .catch(error => console.log(error));
 
-  // A popup form to add a comment and blurred "main" background:
-  addCommentBtn.addEventListener("click", e => {
-    main.style.filter = "blur(10px)";
-    modal.style.zIndex = "1";
-    modal.style.display = "initial";
-  });
+
+
+// //===== Get all data
+// fetch(`${apiDomain}posts`)
+//   .then(response => response.json())
+//   .then(obj => console.log(obj))
+//   .catch(error => console.log(error));
+
+
+
+
+// //===== Update reactions
+
+// const data = {target: "smile"}
+
+// const options = {
+//       method: "PUT",
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(data)
+//     }
   
-  // A preliminary event listener to submit a comment (using "click" for now, for testing):
-  postCommentBtn.addEventListener("click", e => {
-    e.preventDefault();
-    console.log("Comment has been submitted");
-    modal.style = "initial";
-    main.style = "initial";
-  })
+//   fetch(`${apiDomain}posts/reactions/update/1`, options)
+//     .then(response => response.json())
+//     .then(obj => console.log(obj))
+//     .catch(error => console.log(error));
+
+// //===== Add a post
+// const data = {
+//   comment: "hey, I posted this from our client."
+// }
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data)
+//   }
+
+// fetch(`${apiDomain}posts/comments/new/1`, options)
+//   .then(response => response.json())
+//   .then(obj => console.log(obj))
+//   .catch(error => console.log(error));
+
+
+  fetch(`${apiDomain}posts`)
+  .then(response => response.json())
+  .then(data => {
+    createPosts(data)
+    
+  }).catch(error => console.log(error));
+
+
+
+
+function createPosts(data) {
+  data.forEach(entry => {
+    const newArticle = document.createElement('article');
+      
+    const post  = document.createElement('div');
+    post.classList.add("post");
+    post.textContent = entry.message;
+
+    newArticle.append(post);
+
+    const reactions = document.createElement('div');
+    reactions.classList.add("reactions");
+    const emojiBox = document.createElement('div');
+    emojiBox.id = "emoji-box";
+    const button = document.createElement('button');
+    button.classList.add("collapsible");
+
+    
+
+    reactions.append(emojiBox);
+    reactions.append(button);
+    newArticle.append(reactions);
+
+    const comments = document.createElement('div');
+    comments.classList.add('comments');
+
+    const headline = document.createElement("h4");
+    headline.textContent = "Comments";
+
+    const addCommentBtn = document.createElement('button');
+    addCommentBtn.classList.add("add");
+    addCommentBtn.textContent = "+";
+  
+    comments.append(headline);
+    comments.append(addCommentBtn)
+
+    entry.comments.forEach(comment => {
+      const currentComment = document.createElement("p");
+      currentComment.textContent = comment;
+      comments.append(currentComment);
+    });
+
+    newArticle.append(comments);
+
+    button.addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = comments
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+
+    newArticle.id = entry.id;
+
+    document.querySelector('main').append(newArticle)
+  
+    
+  });
 }

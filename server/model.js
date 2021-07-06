@@ -14,6 +14,7 @@ class Post {
     const id = postData.length + 1;
     const newPost = new Post({id: id, ...data});
     postData.push(newPost);
+    return postData
   }
   static getPost(id) {
     const posts = Post.all;
@@ -29,7 +30,8 @@ class Post {
   }
   static updateReactions(id, targetReaction) {
     const targetPost = Post.getPost(id);
-    targetPost.reaction[targetReaction] ++
+    console.log(targetPost.message);
+    targetPost.reactions[targetReaction] ++
     return targetPost
   }
 

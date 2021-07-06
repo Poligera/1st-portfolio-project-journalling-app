@@ -8,14 +8,6 @@ const data = require("../data.json")
 app.use(cors());
 app.use(express.json());
 
-// Root get.
-app.get('/', (req, res) => res.send(data))
-
-//ADD TEST DATA
-Post.addPost({message: "hi", comments: ['Comment 1', 'Comment 2']})
-// console.log(Post.all)
-
-
 
 
 //GET
@@ -37,29 +29,40 @@ app.get('/posts/comments/:id', (req, res) => {
     }
 });
 
+
+
+
 //POST
 
 app.post('/posts/new', (req, res) => {
-    res.send('you asked to add a new post');
+    console.log(req.body.message)  
+    
+
+    const updatedPostList = Post.addPost(req.body)
+
+    res.send(updatedPostList);
 });
 
-//====== This works
-app.post('posts/comments/new/:Index', (req, res) => {
-    
-        Post.addComment(id, "I'm a new comment") //! hard coded at the moment.
-        const updatedPost = Post.getPost(id)
 
-        res.send(updatedPost.comments);
+app.post('/posts/comments/new/:id', (req, res) => {
    
-    
+        const id = parseInt(req.params.id);
+        const comment = req.body.comment
+        Post.addComment(id, comment)
+        const updatedPost = Post.getPost(id)
+        
+        res.send(updatedPost); 
 });
+
+
 
 //UPDATE
 
-app.put('/posts/reactions/update/:Index', (req, res) => {
-    // TODO get the reaction type from the body.
-    Post.updateReactions()
-    res.send('you asked to update reaction count')
+app.put('/posts/reactions/update/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const targetReaction = req.body.target
+    Post.updateReactions(id, targetReaction)
+    res.send()
 })
 
 

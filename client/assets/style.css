@@ -107,7 +107,7 @@ article {
   min-height: 25%;
   display: grid;
   grid-template-rows: 1.5fr 1fr;
-  margin: auto;
+  margin: 30px auto 15px auto;
   font-size: 0.9rem;
   position: relative;
   top: 1%;
@@ -118,7 +118,7 @@ article {
 article .post {
   background-color: rgb(190, 218, 236);
   padding: 1rem;
-  text-align: justify;
+  text-align: center;
 }
 
 article .reactions {
@@ -154,6 +154,9 @@ article .reactions .collapsible:hover {
 article .comments {
   background-color: rgb(231, 229, 229);
   padding: 1rem;
+  display: none;
+  overflow: hidden;
+  transition: 1s;
 }
 
 article .comments h4 {
