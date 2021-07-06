@@ -4,13 +4,285 @@
   padding: 0;
 }
 
+body {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-areas:
+    "header header header"
+    "div main aside";
+  grid-template-rows: 15% 1fr;
+  grid-template-columns: 18% 1fr 18%;
+  font-family: "Open Sans", Georgia, "Times New Roman", Times, serif;
+}
+
 header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
+  text-align: center;
+  grid-area: header;
+  background-color: rgba(188, 224, 196, 0.952);
+  color: white;
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.5rem;
 }
 
-header ul li {
-  display: inline-block;
+header h1 {
+  font-family: "Tangerine";
 }
+
+header hr {
+  color: white;
+}
+
+header h5 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+#left {
+  grid-area: div;
+}
+
+#right {
+  grid-area: aside;
+}
+
+main {
+  border-left: 2px rgba(188, 224, 196, 0.952) solid;
+  border-right: 2px rgba(188, 224, 196, 0.952) solid;
+  grid-area: main;
+  height: 100vh;
+}
+
+section {
+  width: 70%;
+  height: 20%;
+  margin: 3rem auto 0;
+}
+
+form {
+  width: 100%;
+  height: 60%;
+  border: 16px solid lightgray;
+  border-radius: 12px 12px 0 0;
+}
+
+form textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: left;
+  resize: none;
+  font-size: 0.8rem;
+  line-height: 1.7rem;
+  padding: 0.6rem;
+}
+
+textarea:hover {
+  background-color: antiquewhite;
+}
+
+.add-button {
+  height: 18%;
+  background-color: rgb(240, 204, 210);
+  border-radius: 0 0 12px 12px;
+  margin-top: 0.2rem;
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+article {
+  width: 70%;
+  height: auto;
+  display: grid;
+  grid-template-rows: 1.5fr 1fr;
+  margin: 30px auto 15px auto;
+  font-size: 0.9rem;
+  position: relative;
+  top: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+article .post {
+  background-color: rgb(190, 218, 236);
+  padding: 1rem;
+  text-align: center;
+}
+
+article .reactions {
+  border: 5px rgb(238, 236, 236) solid;
+  border-top: none;
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+article .reactions #emoji-box {
+  width: 10vw;
+  height: 4vh;
+  border: lightgray solid 1px;
+  margin: auto auto auto 1rem;
+}
+
+article .reactions .collapsible {
+  height: 3.8vh;
+  width: 2.6vw;
+  border: none;
+  margin: auto 1rem auto auto;
+  background: url("./images/comment-shape.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+article .reactions .collapsible:hover {
+  height: 5vh;
+}
+
+article .comments {
+  background-color: rgb(231, 229, 229);
+  padding: 1rem;
+  display: none;
+  overflow: hidden;
+  transition: 1s;
+}
+
+article .comments h4 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+article .comments .comment-paragraph {
+  margin: 1.5rem 0;
+}
+
+article .comments button {
+  background-color: rgb(231, 229, 229);
+  border: none;
+  font-size: 2rem;
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0;
+}
+
+.modal {
+  width: 40vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  backdrop-filter: 10px;
+}
+
+.modal form {
+  border: 16px solid rgb(190, 218, 236);
+}
+
+.modal .add-button {
+  background-color: rgba(188, 224, 196, 0.952);
+}
+
+/* MEDIA QUERIES */
+/* Portrait and landscape*/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-rows: 20% 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    grid-area: header;
+    height: 22vh;
+    line-height: 1rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    padding-top: 1.5rem;
+  }
+
+  header h5 {
+    font-size: small;
+    padding-top: 0;
+  }
+
+  main {
+    margin-top: 1rem;
+    border: none;
+    overflow-y: scroll;
+  }
+
+  section {
+    width: 95%;
+    height: 40%;
+    margin: auto;
+  }
+
+  section form {
+    height: 80%;
+    border: 10px solid lightgray;
+  }
+
+  form textarea {
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+    padding: 0.3rem;
+  }
+
+  .add-button {
+    height: 15%;
+  }
+
+  article {
+    font-size: 0.7rem;
+    width: 95%;
+    height: auto;
+    margin-top: 3vh;
+  }
+
+  article .reactions {
+    padding-bottom: 1rem;
+    height: 8vh;
+  }
+
+  article .reactions #emoji-box {
+    width: 30vw;
+    height: 5vh;
+    margin: 0.4rem 1rem;
+    text-align: center;
+  }
+
+  article .reactions .collapsible {
+    height: 4vh;
+    width: 4vh;
+    margin: 0.4rem 1rem;
+  }
+
+  .modal {
+    width: 90vw;
+  }
+
+  .modal form {
+    border: 5px solid rgb(190, 218, 236);
+  }
+}
+
+/* Landscape only */
+/* @media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) */
