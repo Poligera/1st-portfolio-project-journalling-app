@@ -1,4 +1,5 @@
 // const { response } = require("../../server/app");
+const { div } = require("prelude-ls");
 const helpers = require("./helpers");
 
 const apiDomain = "https://my-little-victories.herokuapp.com/";
@@ -60,8 +61,6 @@ submitButton.addEventListener("click", (e) => {
 // Add event listener to the POST textArea to notify user how many characters he is entering and of the maximum allowed length:
 const newPostText = document.getElementById("newPostText");
 const counterPost = document.getElementById("charCounterPost");
-console.log(newPostText);
-console.log(counterPost);
 
 newPostText.addEventListener("input", (e) => {
   const target = e.target;
@@ -155,6 +154,92 @@ function buttonEvents() {
       }
     });
   });
+
+  const addCommentsBtns = document.querySelectorAll(".add");
+  const addCommentsBtnsArr = Array.from(addCommentsBtns);
+  addCommentsBtnsArr.forEach((button) =>
+    button.addEventListener("click", () => {
+      // this.classList.toggle("active");
+      const modal = document.createElement("div");
+      modal.classList.add = "modal";
+
+      const charCounterComment = document.createElement("div");
+      charCounterComment.textContent = "280 characters remaining";
+      charCounterComment.id = "charCounterComment";
+      modal.appendChild(charCounterComment);
+
+      const formComment = document.createElement("form");
+      formComment.setAttribute("action", "submit");
+      modal.appendChild(formComment);
+
+      const commentTextarea = document.createElement("textarea");
+      commentTextarea.setAttribute("maxlength", "280");
+      commentTextarea.setAttribute("type", "text");
+      commentTextarea.id = "newCommentText";
+      formComment.appendChild(commentTextarea);
+
+      const btnSubmitComment = document.createElement("button");
+      btnSubmitComment.classList.add = "add-button";
+      btnSubmitComment.classList.add = "post-comment";
+      btnSubmitComment.id = "form";
+      btnSubmitComment.setAttribute("type", "submit");
+      btnSubmitComment.id = "form";
+      btnSubmitComment.textContent = "ADD COMMENT";
+      modal.appendChild(btnSubmitComment);
+
+      button.closest("div").append(modal);
+      button.disabled = true;
+
+      // Enable character count above the Textarea:
+      commentTextarea.addEventListener("input", (e) => {
+        const target = e.target;
+        const maxLength = target.getAttribute("maxlength");
+        let currentLength = target.value.length;
+        charCounterComment.textContent = `${
+          maxLength - currentLength
+        } characters remaining`;
+      });
+
+      // Store the value of user's comment in a variable:
+      btnSubmitComment.addEventListener("click", (e) => {
+        const commentText = commentTextarea.value;
+        postComment(e.target.closest("article").id, commentText);
+        // console.log(e.target.closest("article").id);
+        // Remove the modal:
+        button.closest("div").removeChild(modal);
+
+        // Add new p tag (append to grey box):
+        const commentParagraph = document.createElement("p");
+        commentParagraph.style.marginTop = "1rem";
+
+        // For testing: add the comment to the existing comments:
+        commentParagraph.textContent = commentText;
+        button.closest("div").appendChild(commentParagraph);
+
+        // Enable the button:
+        button.disabled = false;
+      });
+    })
+  );
+}
+
+function postComment(target, comment) {
+  // Fetch (with Dan) - POST:
+  const data = {
+    comment: comment,
+  };
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+
+  fetch(`${apiDomain}posts/comments/new/${target}`, options)
+    .then((response) => response.json())
+    .then((obj) => console.log(obj))
+    .catch((error) => console.log(error));
 }
 
 function bindings() {
@@ -166,23 +251,6 @@ function bindings() {
 
 // //===== Get all data
 // fetch(`${apiDomain}posts`)
-//   .then(response => response.json())
-//   .then(obj => console.log(obj))
-//   .catch(error => console.log(error));
-
-// //===== Add a Comment
-// const data = {
-//   comment: "hey, I posted this from our client."
-// }
-//   const options = {
-//     method: "POST",
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data)
-//   }
-
-// fetch(`${apiDomain}posts/comments/new/1`, options)
 //   .then(response => response.json())
 //   .then(obj => console.log(obj))
 //   .catch(error => console.log(error));
