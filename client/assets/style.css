@@ -139,7 +139,8 @@ textarea:focus {
   color: rgb(69, 73, 95);
   font-size: 0.8rem;
   text-align: right;
-  margin-right: 1rem;
+  margin-right: 0.6rem;
+  margin-bottom: 0.2rem;
   font-style: italic;
 }
 
