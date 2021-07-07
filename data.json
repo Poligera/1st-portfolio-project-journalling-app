@@ -45,6 +45,7 @@
         "id": 8,
         "message": "I want to be famous too",
         "reactions": {"smile":7, "celebrate": 12, "love": 17},
-        "comments": ["<3"]
+        "comments": ["<3"],
+        "gifUrl": "https://media2.giphy.com/media/TdfyKrN7HGTIY/giphy.gif?cid=47e265ec23057s8omse8hlg5pkynxeelp006pm32pedlli9c&rid=giphy.gif&ct=g"
     }
 ]
