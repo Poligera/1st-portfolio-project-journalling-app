@@ -4,6 +4,12 @@ const helpers = require("./helpers");
 
 const apiDomain = "https://my-little-victories.herokuapp.com/";
 
+
+function loadAllPosts() {
+
+}
+
+
 fetch(`${apiDomain}posts`)
   .then((response) => response.json())
   .then((data) => {
@@ -15,6 +21,12 @@ fetch(`${apiDomain}posts`)
 // ADD GIFS
 
 const addGif = document.querySelector("#addGif");
+
+
+document.getElementById("closeButton").addEventListener("click", () => {
+  document.getElementById("gifPopup").style.display = "none";
+})
+
 
 addGif.addEventListener("click", (e) => {
   document.getElementById("gifPopup").style.display = "block";
@@ -58,6 +70,7 @@ submitButton.addEventListener("click", (e) => {
     .catch((error) => console.log(error));
 });
 
+
 // Add event listener to the POST textArea to notify user how many characters he is entering and of the maximum allowed length:
 const newPostText = document.getElementById("newPostText");
 const counterPost = document.getElementById("charCounterPost");
@@ -68,6 +81,7 @@ newPostText.addEventListener("input", (e) => {
   let currentLength = target.value.length;
   counterPost.textContent = `${maxLength - currentLength} characters remaining`;
 });
+
 
 const formSubmit = document.getElementById("formSubmit");
 
@@ -93,6 +107,10 @@ formSubmit.addEventListener("click", (e) => {
     .then((response) => response.json())
     .then((obj) => {
       helpers.createPosts(obj);
+
+      document.getElementById("newPostText").value = "";
+      document.getElementById("gifToAdd").remove();
+
       bindings();
     })
     .catch((error) => console.log(error));
@@ -100,6 +118,7 @@ formSubmit.addEventListener("click", (e) => {
 
 function addEmojiEvents() {
   const reactionDiv = document.querySelectorAll(".emoji");
+
 
   const emojiArray = Array.from(reactionDiv);
 
@@ -119,6 +138,7 @@ function addEmojiEvents() {
       tally++;
       // Update Dom
       e.target.querySelector("p").textContent = tally;
+
 
       // Update server date
       const data = { target: reactionType };
@@ -240,6 +260,7 @@ function postComment(target, comment) {
     .then((response) => response.json())
     .then((obj) => console.log(obj))
     .catch((error) => console.log(error));
+
 }
 
 function bindings() {
@@ -254,3 +275,4 @@ function bindings() {
 //   .then(response => response.json())
 //   .then(obj => console.log(obj))
 //   .catch(error => console.log(error));
+
