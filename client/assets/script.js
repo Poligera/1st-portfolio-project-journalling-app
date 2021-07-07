@@ -13,27 +13,27 @@ fetch(`${apiDomain}posts`)
   })
   .catch((error) => console.log(error));
 
-// Add event listener to the POST textArea to notify user how many characters he is entering and of the maximum allowed length:
-const newPostText = document.getElementById("newPostText");
-const counterPost = document.getElementById("charCounterPost");
-newPostText.addEventListener("input", (e) => {
-  const target = e.target;
-  const maxLength = target.getAttribute("maxlength");
-  let currentLength = target.value.length;
-  counterPost.textContent = `${maxLength - currentLength} characters remaining`;
-});
+// // Add event listener to the POST textArea to notify user how many characters he is entering and of the maximum allowed length:
+// const newPostText = document.getElementById("newPostText");
+// const counterPost = document.getElementById("charCounterPost");
+// newPostText.addEventListener("input", (e) => {
+//   const target = e.target;
+//   const maxLength = target.getAttribute("maxlength");
+//   let currentLength = target.value.length;
+//   counterPost.textContent = `${maxLength - currentLength} characters remaining`;
+// });
 
-// Add event listener to the COMMENT textArea to notify user how many characters he is entering and of the maximum allowed length:
-const newCommentText = document.getElementById("newCommentText");
-const counterComment = document.getElementById("charCounterComment");
-newCommentText.addEventListener("input", (e) => {
-  const target = e.target;
-  const maxLength = target.getAttribute("maxlength");
-  let currentLength = target.value.length;
-  counterComment.textContent = `${
-    maxLength - currentLength
-  } characters remaining`;
-});
+// // Add event listener to the COMMENT textArea to notify user how many characters he is entering and of the maximum allowed length:
+// const newCommentText = document.getElementById("newCommentText");
+// const counterComment = document.getElementById("charCounterComment");
+// newCommentText.addEventListener("input", (e) => {
+//   const target = e.target;
+//   const maxLength = target.getAttribute("maxlength");
+//   let currentLength = target.value.length;
+//   counterComment.textContent = `${
+//     maxLength - currentLength
+//   } characters remaining`;
+// });
 
 
 // ADD GIFS
