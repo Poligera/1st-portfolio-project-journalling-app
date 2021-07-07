@@ -1,0 +1,42 @@
+{
+  "name": "1st-portfolio-project",
+  "version": "1.0.0",
+  "description": "Community Journaling Website",
+  "main": "./server/index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "test": "jest --watchAll --verbose",
+    "dev": "nodemon ./server/index.js",
+    "coverage": "jest --coverage",
+    "bundle": "concurrently \"watchify ./client/assets/script.js -o ./client/assets/bundle.js\" \"python -m http.server\""
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poligera/1st-portfolio-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Poligera/1st-portfolio-project/issues"
+  },
+  "homepage": "https://github.com/Poligera/1st-portfolio-project#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.9"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.9",
+    "supertest": "^6.1.3",
+    "watchify": "^4.0.0"
+  }
+}

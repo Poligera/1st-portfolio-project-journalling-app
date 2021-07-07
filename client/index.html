@@ -4,22 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Community Journal</title>
+    <title>My Little Victories | Your Journal</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Tangerine:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="assets/bundle.js"></script>
   </head>
   <body>
     <header>
-      <ul>
-        <li>Link 1</li>
-        <li>Link 2</li>
-        <li>Link 3</li>
-      </ul>
+      <h1>My Little Victories</h1>
+      <h5>your community journal for positive reflection</h5>
     </header>
     <main>
-      <form action="submit">
-        <label for=""></label>
-        <input type="text" />
-        <button type="submit"></button>
-      </form>
+      <section id="form">
+        <div id="charCounterPost">280 characters remaining</div>
+        <form action="submit" class="main-form">
+          <textarea
+            id="newPostText"
+            maxlength="280"
+            type="text"
+            placeholder="share your little victory with with world."
+          ></textarea>
+        </form>
+        <section id="gifPopup" class="overlay">
+          <label for="gifSearch">Search for a gif</label>
+          <input type="text" name="gifSearch" id="gifSearch" />
+          <button id="giphySearchButton">Searching</button>
+          <button id="closeButton">Close</button>
+          <div id="gifs"></div>
+        </section>
+        <button id="addGif">Add Gif</button>
+        <button class="add-button" type="submit" id="formSubmit">
+          Add Post
+        </button>
+      </section>
     </main>
+
+    <section class="modal">
+      <div id="charCounterComment">280 characters remaining</div>
+      <form action="submit">
+        <textarea id="newCommentText" maxlength="280" type="text"></textarea>
+      </form>
+      <button class="add-button post-comment" type="submit" id="form">
+        ADD COMMENT
+      </button>
+    </section>
   </body>
 </html>
