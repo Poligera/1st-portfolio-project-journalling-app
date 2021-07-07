@@ -280,18 +280,22 @@ article .comments .add {
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
-  /* display: none; */
-  /* z-index: 1;
-  backdrop-filter: blur(5px); */
 }
 
 .modal form {
   border: 16px solid rgb(190, 218, 236);
 }
 
-.modal .add-button {
-  background-color: rgba(188, 224, 196, 0.952);
+/* Modal button */
+#form {
+  background-color: rgb(204, 235, 240);
+  align-self: flex-end;
+  padding: 0.5rem 2rem;
+  justify-self: center;
+  border-radius: 0 0 12px 12px;
+  border: none;
 }
+
 .emoji {
   background-color: burlywood;
   width: 20px;
