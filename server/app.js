@@ -5,6 +5,8 @@ const Post = require("./model");
 const data = require("../data.json");
 const { response } = require("express");
 require('dotenv').config()
+const axios = require('axios').default;
+
 
 
 //MIDDLEWARE
@@ -30,9 +32,26 @@ app.get("/posts/comments/:id", (req, res) => {
   }
 });
 
+app.get("/gifs/:search", (req, res) => {
+
+  // Construct the url we're going to send to giphy
+  const search = req.params.search;
+  const url = `https://api.giphy.com/v1/gifs/search?&api_key=${process.env.GIPHYAPIKEY}&q=${search}&limit=20`
+
+  axios.get(url)
+  .then(function (response) {
+    res.send(response.data.data)
+  })
+  .catch(function (error) {
+    res.send(error.message)
+  })
+})
+
 //POST
 
 app.post("/posts/new", (req, res) => {
+
+  console.log(req.body);
 
   Post.addPost(req.body);
   res.statusCode = 201;

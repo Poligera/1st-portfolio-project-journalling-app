@@ -19,6 +19,17 @@ function createPosts(data) {
       post.textContent = data[i].message;
   
       newArticle.append(post);
+
+      if (data[i].gifUrl) {
+        console.log(data[i].gifUrl)
+        const gifContainer = document.createElement('div');
+        gifContainer.classList.add("postGifContainer")
+        const img = document.createElement('img');
+        img.classList.add("post-gif");
+        gifContainer.append(img)
+        img.src = data[i].gifUrl
+        newArticle.append(gifContainer);
+      }
   
       const reactions = document.createElement('div');
       reactions.classList.add("reactions");

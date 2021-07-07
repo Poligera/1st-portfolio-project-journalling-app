@@ -58,6 +58,20 @@ header h5 {
   z-index: 2;
   cursor: pointer;
 }
+#gifPopup {
+  text-align: center;
+  /* display: block; */
+}
+#gifs {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.gif-img {
+  height: 100px;
+  display: inline;
+  margin: 0 10px;
+}
 
 main {
   /* border-left: 2px rgba(188, 224, 196, 0.952) solid;
@@ -75,7 +89,7 @@ section {
 form {
   width: 100%;
   height: 60%;
-  border: 16px solid lightgray;
+  border: 16px solid rgb(240, 240, 240);
   border-radius: 12px 12px 0 0;
 }
 
@@ -91,7 +105,10 @@ form textarea {
 }
 
 textarea:hover {
-  background-color: antiquewhite;
+  background-color: rgb(236, 252, 236);
+}
+textarea:focus {
+  background-color: rgb(236, 252, 236);
 }
 
 .add-button {
@@ -104,6 +121,9 @@ textarea:hover {
   font-size: 1rem;
   color: white;
 }
+.add-button:hover {
+  background-color: rgb(231, 183, 191);
+}
 #addGif {
   height: 25px;
   background-color: rgb(204, 235, 240);
@@ -114,6 +134,9 @@ textarea:hover {
   width: 100%;
   font-size: 1rem;
   color: white;
+}
+#addGif:hover {
+  background-color: rgb(187, 218, 223);
 }
 
 button:hover {
@@ -137,6 +160,8 @@ article .post {
   background-color: rgb(190, 218, 236);
   padding: 1rem;
   text-align: center;
+
+  border-radius: 5px 5px 0 0;
 }
 
 article .reactions {
@@ -169,10 +194,21 @@ article .reactions .collapsible {
   background-color: white;
 }
 
-article .reactions .collapsible:hover {
+/* article .reactions .collapsible:hover {
   height: 5vh;
+} */
+#postGifContainer {
+  width: 70%;
 }
-
+.post-gif {
+  overflow: hidden;
+  width: 100%;
+}
+#gifToAdd {
+  height: 40px;
+  position: relative;
+  bottom: 35px;
+}
 article .comments {
   background-color: rgb(231, 229, 229);
   padding: 1rem;

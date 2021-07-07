@@ -22,15 +22,24 @@
     <main>
       <section id="form">
         <form action="submit" class="main-form">
-          <textarea id="newPostText" maxlength="280" type="text"></textarea>
+          <textarea
+            id="newPostText"
+            maxlength="280"
+            type="text"
+            placeholder="share your little victory with with world."
+          ></textarea>
         </form>
         <section id="gifPopup" class="overlay">
           <label for="gifSearch">Search for a gif</label>
           <input type="text" name="gifSearch" id="gifSearch" />
-          <button id="giphySearchButton">Search</button>
+          <button id="giphySearchButton">Searching</button>
+          <button id="closeButton">Close</button>
+          <div id="gifs"></div>
         </section>
         <button id="addGif">Add Gif</button>
-        <button class="add-button" type="submit" id="formSubmit">ADD</button>
+        <button class="add-button" type="submit" id="formSubmit">
+          Add Post
+        </button>
       </section>
     </main>
 

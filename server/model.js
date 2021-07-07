@@ -5,7 +5,8 @@ class Post {
     this.id = data.id;
     this.message = data.message;
     this.reactions = {smile: 0, celebrate: 0, love: 0};
-    this.comments = data.comments; //! This is for testing, change to empty array later
+    this.comments = []; 
+    this.gifUrl = data.gifUrl
   }
   static get all() {
     return postData
