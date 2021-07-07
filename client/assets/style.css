@@ -45,12 +45,32 @@ header h5 {
   font-weight: 400;
 }
 
-#left {
-  grid-area: div;
+.overlay {
+  position: fixed;
+  display: none;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
 }
-
-#right {
-  grid-area: aside;
+#gifPopup {
+  text-align: center;
+  /* display: block; */
+}
+#gifs {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.gif-img {
+  height: 100px;
+  display: inline;
+  margin: 0 10px;
 }
 
 main {
@@ -69,7 +89,7 @@ section {
 form {
   width: 100%;
   height: 60%;
-  border: 16px solid lightgray;
+  border: 16px solid rgb(240, 240, 240);
   border-radius: 12px 12px 0 0;
 }
 
@@ -85,7 +105,10 @@ form textarea {
 }
 
 textarea:hover {
-  background-color: antiquewhite;
+  background-color: rgb(236, 252, 236);
+}
+textarea:focus {
+  background-color: rgb(236, 252, 236);
 }
 
 #charCounterPost,
@@ -102,11 +125,28 @@ textarea:hover {
   height: 18%;
   background-color: rgb(240, 204, 210);
   border-radius: 0 0 12px 12px;
-  margin-top: 0.2rem;
+
   border: none;
   width: 100%;
   font-size: 1rem;
   color: white;
+}
+.add-button:hover {
+  background-color: rgb(231, 183, 191);
+}
+#addGif {
+  height: 25px;
+  background-color: rgb(204, 235, 240);
+
+  margin-top: 0.2rem;
+
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+}
+#addGif:hover {
+  background-color: rgb(187, 218, 223);
 }
 
 button:hover {
@@ -130,6 +170,8 @@ article .post {
   background-color: rgb(190, 218, 236);
   padding: 1rem;
   text-align: center;
+
+  border-radius: 5px 5px 0 0;
 }
 
 article .reactions {
@@ -162,10 +204,21 @@ article .reactions .collapsible {
   background-color: white;
 }
 
-article .reactions .collapsible:hover {
+/* article .reactions .collapsible:hover {
   height: 5vh;
+} */
+#postGifContainer {
+  width: 70%;
 }
-
+.post-gif {
+  overflow: hidden;
+  width: 100%;
+}
+#gifToAdd {
+  height: 40px;
+  position: relative;
+  bottom: 35px;
+}
 article .comments {
   background-color: rgb(231, 229, 229);
   padding: 1rem;
