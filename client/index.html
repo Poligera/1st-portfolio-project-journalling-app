@@ -27,7 +27,9 @@
             id="newPostText"
             maxlength="280"
             type="text"
-            placeholder="share your little victory with with world."
+            placeholder=""
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='share your little victory with with world...'"
           ></textarea>
         </form>
         <section id="gifPopup" class="overlay">
@@ -43,15 +45,5 @@
         </button>
       </section>
     </main>
-
-    <!-- <section class="modal">
-      <div id="charCounterComment">280 characters remaining</div>
-      <form action="submit">
-        <textarea id="newCommentText" maxlength="280" type="text"></textarea>
-      </form>
-      <button class="add-button post-comment" type="submit" id="form">
-        ADD COMMENT
-      </button>
-    </section> -->
   </body>
 </html>
