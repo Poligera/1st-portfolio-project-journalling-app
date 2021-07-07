@@ -1,5 +1,6 @@
 // const { response } = require("../../server/app");
 const helpers = require("./helpers");
+
 const apiDomain = "https://my-little-victories.herokuapp.com/"
 
 
@@ -205,7 +206,4 @@ function bindings() {
 //   .then(response => response.json())
 //   .then(obj => console.log(obj))
 //   .catch(error => console.log(error));
-
-
-
 
