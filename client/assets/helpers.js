@@ -1,4 +1,4 @@
-const apiDomain = "http://localhost:3000/"
+const apiDomain = "https://my-little-victories.herokuapp.com/"
 
 function removePreviousPosts() {
     const postList = document.querySelectorAll("article")
@@ -21,13 +21,16 @@ function createPosts(data) {
       newArticle.append(post);
 
       if (data[i].gifUrl) {
-        console.log(data[i].gifUrl)
+      
         const gifContainer = document.createElement('div');
         gifContainer.classList.add("postGifContainer")
+
         const img = document.createElement('img');
         img.classList.add("post-gif");
+        img.src = data[i].gifUrl;
+
         gifContainer.append(img)
-        img.src = data[i].gifUrl
+        
         newArticle.append(gifContainer);
       }
   
