@@ -105,8 +105,12 @@ form {
   border-radius: 12px 12px 0 0;
 }
 
-form.placeholder {
+::placeholder {
   text-align: center;
+  font-style: italic;
+  color: rgb(146, 218, 230);
+  opacity: 0.6;
+  font-size: larger;
 }
 
 form textarea {
@@ -122,6 +126,7 @@ form textarea {
 
 textarea:hover {
   background-color: rgb(236, 252, 236);
+  cursor: pointer;
 }
 
 textarea:focus {
@@ -184,7 +189,7 @@ article {
 }
 
 article .post {
-  background-color: rgb(190, 218, 236);
+  background-color: rgb(204, 235, 240);
   padding: 1rem;
   text-align: center;
 
