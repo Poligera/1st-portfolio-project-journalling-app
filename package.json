@@ -2,7 +2,7 @@
   "name": "1st-portfolio-project",
   "version": "1.0.0",
   "description": "Community Journaling Website",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
     "start": "node ./server/index.js",
     "test": "jest --watchAll --verbose",
