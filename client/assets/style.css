@@ -58,15 +58,36 @@ header h5 {
 .overlay {
   position: fixed;
   display: none;
-  width: 50%;
-  height: 50%;
-  top: 25%;
+  width: 60%;
+  height: 50vh;
+  top: 3%;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
+  contain: content;
+  padding-bottom: 1rem;
+}
+
+#gifPopup label {
+  color: white;
+  font-weight: bold;
+}
+
+#gifSearch {
+  width: 8rem;
+  height: 1.2rem;
+  text-align: center;
+  margin-left: 1rem;
+}
+
+#giphySearchButton,
+#closeButton {
+  padding: 0.2rem 0.8rem;
+  margin: 1rem 0.2rem;
+  border-radius: 5px;
 }
 #gifPopup {
   text-align: center;
@@ -126,7 +147,6 @@ form textarea {
 
 textarea:hover {
   background-color: rgb(236, 252, 236);
-  cursor: pointer;
 }
 
 textarea:focus {
@@ -244,9 +264,11 @@ article .reactions .collapsible:hover {
   width: 100%;
 }
 #gifToAdd {
-  height: 40px;
+  height: 50px;
   position: relative;
-  bottom: 35px;
+  bottom: 40px;
+  left: -50px;
+  display: block;
 }
 article .comments {
   background-color: rgb(231, 229, 229);
