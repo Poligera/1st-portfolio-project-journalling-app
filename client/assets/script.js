@@ -42,6 +42,9 @@ gifSearchButton.addEventListener("click", (e) => {
           document.getElementById("gifPopup").style.display = "none";
 
           // Add it to the dom
+          if (document.getElementById('gifToAdd')) {
+            document.getElementById('gifToAdd').remove()
+          }
           const gif = document.createElement("img");
           gif.src = imgSource;
           gif.id = "gifToAdd";
@@ -75,6 +78,7 @@ newPostText.addEventListener("input", (e) => {
   addPostButton.disabled = false;
 });
 
+// Adds the post to the DOM & sends it to the server
 addPostButton.addEventListener("click", (e) => {
   const data = {
     message: document.getElementById("newPostText").value,
