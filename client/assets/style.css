@@ -434,7 +434,7 @@ article .comments .add {
 
   .add-button,
   #addGif {
-    height: 17%;
+    min-height: 17%;
   }
 
   .overlay {
