@@ -27,7 +27,7 @@
       />
       <div id="header">
         <h1>My Little Victories</h1>
-        <h5>your community journal for positive reflection</h5>
+        <h5>a place to share your little victories & celebrate others</h5>
       </div>
     </header>
     <main>
@@ -39,17 +39,16 @@
             maxlength="280"
             type="text"
             required
-            placeholder=""
+            placeholder="share your little victory with the world..."
             onclick="this.placeholder=''"
-            onblur="this.placeholder='share your little victory with with world...'"
-            required="required"
+            onblur="this.placeholder='share your little victory with the world...'"
           ></textarea>
         </form>
         <section id="gifPopup" class="overlay">
           <label for="gifSearch">Search for a gif</label>
           <input type="text" name="gifSearch" id="gifSearch" />
-          <button id="giphySearchButton">Searching</button>
-          <button id="closeButton">Close</button>
+          <button id="giphySearchButton">SEARCH</button>
+          <button id="closeButton">CLOSE</button>
           <div id="gifs"></div>
         </section>
         <button id="addGif">Add Gif</button>
