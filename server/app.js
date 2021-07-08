@@ -34,24 +34,32 @@ app.get("/posts/comments/:id", (req, res) => {
 
 app.get("/gifs/:search", (req, res) => {
 
-  // Construct the url we're going to send to giphy
-  const search = req.params.search;
-  const url = `https://api.giphy.com/v1/gifs/search?&api_key=${process.env.GIPHYAPIKEY}&q=${search}&limit=20`
+  try {
+    const search = req.params.search;
 
-  axios.get(url)
-  .then(function (response) {
-    res.send(response.data.data)
-  })
-  .catch(function (error) {
+    if (search.length === 0) {
+      throw new Error('No search term')
+    }
+    const url = `https://api.giphy.com/v1/gifs/search?&api_key=${process.env.GIPHYAPIKEY}&q=${search}&limit=20`
+
+    axios.get(url)
+    .then(function (response) {
+      res.send(response.data.data)
+    })
+    .catch(function (error) {
+      res.send(error.message)
+    })
+  } catch (error) {
     res.send(error.message)
-  })
+  }
+  
+  
 })
 
 //POST
 
 app.post("/posts/new", (req, res) => {
 
-  console.log(req.body);
 
   Post.addPost(req.body);
   res.statusCode = 201;
@@ -78,10 +86,18 @@ app.post("/posts/comments/new/:id", (req, res) => {
 //UPDATE
 
 app.put("/posts/reactions/update/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const targetReaction = req.body.target;
-  Post.updateReactions(id, targetReaction);
-  res.send("updated");
+
+  try {
+
+    const id = parseInt(req.params.id);
+    const targetReaction = req.body.target;
+    Post.updateReactions(id, targetReaction);
+    res.send("updated");
+
+  } catch (error) {
+    res.status = 404
+    res.send(err.message)
+  }
 });
 
 module.exports = app;
