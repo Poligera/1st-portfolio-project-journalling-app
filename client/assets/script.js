@@ -1,34 +1,21 @@
-// const { response } = require("../../server/app");
-const { div } = require("prelude-ls");
 const helpers = require("./helpers");
 
 const apiDomain = "https://my-little-victories.herokuapp.com/";
 
-function loadAllPosts() {}
+//========= SELECTORS =========//
 
-fetch(`${apiDomain}posts`)
-  .then((response) => response.json())
-  .then((data) => {
-    helpers.createPosts(data);
-    bindings();
-  })
-  .catch((error) => console.log(error));
+const gifSearchButton = document.getElementById("giphySearchButton");
+const addGifButton = document.querySelector("#addGif");
+const newPostText = document.getElementById("newPostText");
+const counterPost = document.getElementById("charCounterPost");
+const addPostButton = document.getElementById("formSubmit");
 
-// ADD GIFS
 
-const addGif = document.querySelector("#addGif");
+//========= EVENT LISTENERS =========//
 
-document.getElementById("closeButton").addEventListener("click", () => {
-  document.getElementById("gifPopup").style.display = "none";
-});
 
-addGif.addEventListener("click", (e) => {
-  document.getElementById("gifPopup").style.display = "block";
-});
-
-const submitButton = document.getElementById("giphySearchButton");
-
-submitButton.addEventListener("click", (e) => {
+// calls the Giphy api and displays the results
+gifSearchButton.addEventListener("click", (e) => {
   let search = document.getElementById("gifSearch").value;
 
   //Replace spaces in the search term with a plus so the giphy api can handle multi word entries.
@@ -55,6 +42,9 @@ submitButton.addEventListener("click", (e) => {
           document.getElementById("gifPopup").style.display = "none";
 
           // Add it to the dom
+          if (document.getElementById('gifToAdd')) {
+            document.getElementById('gifToAdd').remove()
+          }
           const gif = document.createElement("img");
           gif.src = imgSource;
           gif.id = "gifToAdd";
@@ -67,14 +57,17 @@ submitButton.addEventListener("click", (e) => {
     .catch((error) => console.log(error));
 });
 
-// Add event listener to the POST textArea to notify user how many characters he is entering and of the maximum allowed length:
-const newPostText = document.getElementById("newPostText");
-const counterPost = document.getElementById("charCounterPost");
+// makes the gif search div display
+addGifButton.addEventListener("click", (e) => {
+  document.getElementById("gifPopup").style.display = "block";
+});
 
-// Saving the post button and disabling it until textarea has text in it:
-const formSubmit = document.getElementById("formSubmit");
-formSubmit.disabled = true;
+// Closes the Giphy search Div when the close button is pressed.
+document.getElementById("closeButton").addEventListener("click", () => {
+  document.getElementById("gifPopup").style.display = "none";
+});
 
+// Calculate remaining characters 
 newPostText.addEventListener("input", (e) => {
   const target = e.target;
   const maxLength = target.getAttribute("maxlength");
@@ -82,10 +75,11 @@ newPostText.addEventListener("input", (e) => {
   counterPost.textContent = `${maxLength - currentLength} characters remaining`;
 
   // Button is enabled since textarea has text:
-  formSubmit.disabled = false;
+  addPostButton.disabled = false;
 });
 
-formSubmit.addEventListener("click", (e) => {
+// Adds the post to the DOM & sends it to the server
+addPostButton.addEventListener("click", (e) => {
   const data = {
     message: document.getElementById("newPostText").value,
   };
@@ -124,6 +118,9 @@ formSubmit.addEventListener("click", (e) => {
     })
     .catch((error) => console.log(error));
 });
+
+//========= FUNCTIONS =========//
+
 
 function addEmojiEvents() {
   const reactionDiv = document.querySelectorAll(".emoji");
@@ -278,10 +275,16 @@ function bindings() {
   buttonEvents();
 }
 
-//========= THESE ARE WORKING METHODS TO GET THE DATA FROM OUR API
+function loadAllPosts() {
+  fetch(`${apiDomain}posts`)
+  .then((response) => response.json())
+  .then((data) => {
+    helpers.createPosts(data);
+    bindings();
+  })
+  .catch((error) => console.log(error));
+}
 
-// //===== Get all data
-// fetch(`${apiDomain}posts`)
-//   .then(response => response.json())
-//   .then(obj => console.log(obj))
-//   .catch(error => console.log(error));
+//========= ON LOAD =========//
+
+loadAllPosts()
