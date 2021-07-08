@@ -50,7 +50,7 @@
     },
     {
         "id": 8,
-        "message": "I finished reading my book",
+        "message": "I finished the book I was reading.",
         "reactions": {"smile":10, "celebrate": 12, "love": 4},
         "comments": ["What were you reading?", "I love a good book."],
         "gifUrl": "https://media3.giphy.com/media/IzihZRMnD33J4DsLT1/giphy.gif?cid=ecf05e4768gj8slrg5cgkgtg4ygnkr6qonpbeokl3ttv5aah&rid=giphy.gif&ct=g"
