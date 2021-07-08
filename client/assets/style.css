@@ -147,7 +147,6 @@ form textarea {
 
 textarea:hover {
   background-color: rgb(236, 252, 236);
-  cursor: pointer;
 }
 
 textarea:focus {
