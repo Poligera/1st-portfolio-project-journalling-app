@@ -69,7 +69,7 @@ My Little Victories was created with the following technologies.
 
 ### Wins & Challenges.
 #### Wins 💪🏻
-- We have a function app that meets all requirements.
+- We have a functional app that meets all requirements.
 - Our ability to quickly adapt to an agile working style when our initial plan for development had to change.
 
 #### Challenges 😮‍💨
