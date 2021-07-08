@@ -38,7 +38,6 @@ submitButton.addEventListener("click", (e) => {
   fetch(`${apiDomain}gifs/${search}`)
     .then((response) => response.json())
     .then((obj) => {
-      console.log(obj);
       const gifDisplay = document.getElementById("gifs");
 
       for (let i = 0; i < obj.length; i++) {
@@ -90,6 +89,12 @@ formSubmit.addEventListener("click", (e) => {
   const data = {
     message: document.getElementById("newPostText").value,
   };
+
+  // if the text area is empty then return and don't post anything.
+  if (data.message === "") {
+    return
+  }
+
   // if it has a gif add it to the object
   if (document.getElementById("gifToAdd") === null) {
     data.gifUrl = null;
@@ -110,7 +115,10 @@ formSubmit.addEventListener("click", (e) => {
       helpers.createPosts(obj);
 
       newPostText.value = "";
-      document.getElementById("gifToAdd").remove();
+      if (document.getElementById("gifToAdd")) {
+        document.getElementById("gifToAdd").remove();
+      }
+      
 
       bindings();
     })
@@ -246,6 +254,12 @@ function postComment(target, comment) {
   const data = {
     comment: comment,
   };
+
+  // if the comment is empty return
+  if (data.comment === "") {
+    return
+  }
+
   const options = {
     method: "POST",
     headers: {
@@ -256,7 +270,6 @@ function postComment(target, comment) {
 
   fetch(`${apiDomain}posts/comments/new/${target}`, options)
     .then((response) => response.json())
-    .then((obj) => console.log(obj))
     .catch((error) => console.log(error));
 }
 
