@@ -371,10 +371,11 @@ article .comments .add {
 
   header {
     grid-area: header;
-    height: 18vh;
+    height: 15vh;
     position: sticky;
-    padding-bottom: 0;
     font-size: 1.1rem;
+    align-content: center;
+    padding-top: 2rem;
   }
 
   header img {
@@ -435,6 +436,10 @@ article .comments .add {
   .add-button,
   #addGif {
     height: 17%;
+  }
+
+  .overlay {
+    width: 100%;
   }
 
   article {
