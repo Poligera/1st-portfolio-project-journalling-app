@@ -28,14 +28,14 @@ header {
   background-color: rgba(188, 224, 196, 0.952);
   color: white;
   font-style: italic;
-  font-size: 2rem;
-  line-height: 1.5rem;
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
   z-index: 2;
+  contain: content;
 }
 
 header img {
   width: 3rem;
-  margin-bottom: 2rem;
 }
 
 header #header {
@@ -43,7 +43,6 @@ header #header {
 }
 header h1 {
   font-family: "Tangerine";
-  margin-bottom: 10px;
 }
 
 header hr {
