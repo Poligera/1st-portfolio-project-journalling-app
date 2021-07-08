@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Little Victories | Your Journal</title>
     <link rel="stylesheet" href="./assets/style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://image.flaticon.com/icons/png/128/4327/4327868.png"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,8 +21,14 @@
   </head>
   <body>
     <header>
-      <h1>My Little Victories</h1>
-      <h5>your community journal for positive reflection</h5>
+      <img
+        src="https://www.pngkit.com/png/full/935-9358873_jump-jump-icon-white-png.png"
+        alt="sun logo"
+      />
+      <div id="header">
+        <h1>My Little Victories</h1>
+        <h5>your community journal for positive reflection</h5>
+      </div>
     </header>
     <main>
       <section id="form">
@@ -27,7 +38,11 @@
             id="newPostText"
             maxlength="280"
             type="text"
-            placeholder="share your little victory with with world."
+            required
+            placeholder=""
+            onclick="this.placeholder=''"
+            onblur="this.placeholder='share your little victory with with world...'"
+            required="required"
           ></textarea>
         </form>
         <section id="gifPopup" class="overlay">
@@ -43,15 +58,5 @@
         </button>
       </section>
     </main>
-
-    <!-- <section class="modal">
-      <div id="charCounterComment">280 characters remaining</div>
-      <form action="submit">
-        <textarea id="newCommentText" maxlength="280" type="text"></textarea>
-      </form>
-      <button class="add-button post-comment" type="submit" id="form">
-        ADD COMMENT
-      </button>
-    </section> -->
   </body>
 </html>

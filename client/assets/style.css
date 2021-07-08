@@ -14,12 +14,13 @@ body {
   grid-template-rows: 20% 1fr;
   grid-template-columns: 18% auto 18%;
   font-family: "Open Sans", Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(240, 240, 240);
+  /* background-color: rgb(240, 240, 240); */
+  background-color: rgba(188, 224, 196, 0.952);
 }
 
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -29,8 +30,17 @@ header {
   font-style: italic;
   font-size: 2rem;
   line-height: 1.5rem;
+  z-index: 2;
 }
 
+header img {
+  width: 3rem;
+  margin-bottom: 2rem;
+}
+
+header #header {
+  margin-left: 2rem;
+}
 header h1 {
   font-family: "Tangerine";
   margin-bottom: 10px;
@@ -78,6 +88,9 @@ main {
   border-right: 2px rgba(188, 224, 196, 0.952) solid; */
   grid-area: main;
   background-color: rgb(255, 255, 255);
+  height: 100%;
+  contain: content;
+  border-radius: 30px 30px 0 0;
 }
 
 section {
@@ -87,9 +100,17 @@ section {
 
 form {
   width: 100%;
-  height: 120px;
+  height: 140px;
   border: 16px solid rgb(240, 240, 240);
   border-radius: 12px 12px 0 0;
+}
+
+::placeholder {
+  text-align: center;
+  font-style: italic;
+  color: rgb(146, 218, 230);
+  opacity: 0.6;
+  font-size: larger;
 }
 
 form textarea {
@@ -105,7 +126,9 @@ form textarea {
 
 textarea:hover {
   background-color: rgb(236, 252, 236);
+  cursor: pointer;
 }
+
 textarea:focus {
   background-color: rgb(236, 252, 236);
 }
@@ -116,7 +139,8 @@ textarea:focus {
   color: rgb(69, 73, 95);
   font-size: 0.8rem;
   text-align: right;
-  margin-right: 1rem;
+  margin-right: 0.6rem;
+  margin-bottom: 0.2rem;
   font-style: italic;
 }
 
@@ -134,7 +158,7 @@ textarea:focus {
   background-color: rgb(231, 183, 191);
 }
 #addGif {
-  height: 25px;
+  height: 35px;
   background-color: rgb(204, 235, 240);
 
   margin-top: 0.2rem;
@@ -157,7 +181,7 @@ article {
   height: auto;
   display: grid;
   grid-template-rows: 1.5fr 1fr;
-  margin: 30px auto 15px auto;
+  margin: 10px auto 15px auto;
   font-size: 0.9rem;
   position: relative;
   top: 1%;
@@ -166,7 +190,7 @@ article {
 }
 
 article .post {
-  background-color: rgb(190, 218, 236);
+  background-color: rgb(204, 235, 240);
   padding: 1rem;
   text-align: center;
 
@@ -201,6 +225,12 @@ article .reactions .collapsible {
   background-size: contain;
   background-repeat: no-repeat;
   background-color: white;
+}
+
+article .reactions .collapsible:hover {
+  height: 4.2vh;
+  width: 3vw;
+  cursor: pointer;
 }
 
 /* article .reactions .collapsible:hover {
@@ -250,23 +280,34 @@ article .comments .add {
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
-  /* display: none; */
-  /* z-index: 1;
-  backdrop-filter: blur(5px); */
 }
 
 .modal form {
   border: 16px solid rgb(190, 218, 236);
 }
 
-.modal .add-button {
-  background-color: rgba(188, 224, 196, 0.952);
+/* Modal button */
+#form {
+  background-color: rgb(204, 235, 240);
+  align-self: flex-end;
+  padding: 0.5rem 2rem;
+  justify-self: center;
+  border-radius: 0 0 12px 12px;
+  border: none;
 }
+
 .emoji {
   background-color: burlywood;
   width: 20px;
   height: 20px;
 }
+
+.emoji:hover {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+
 .pContainer {
   background-color: rgb(231, 143, 143);
   border-radius: 50%;
