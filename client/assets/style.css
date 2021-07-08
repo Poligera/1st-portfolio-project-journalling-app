@@ -35,7 +35,7 @@ header {
 
 header img {
   width: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 header #header {
@@ -43,11 +43,8 @@ header #header {
 }
 header h1 {
   font-family: "Tangerine";
-  margin-bottom: 10px;
-}
-
-header hr {
-  color: white;
+  margin-bottom: 1.6rem;
+  font-size: 5rem;
 }
 
 header h5 {
