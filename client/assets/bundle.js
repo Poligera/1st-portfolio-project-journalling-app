@@ -1,111 +1,100 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-const apiDomain = "https://my-little-victories.herokuapp.com/"
+const apiDomain = "https://my-little-victories.herokuapp.com/";
 
 function removePreviousPosts() {
-    const postList = document.querySelectorAll("article")
-    Array.from(postList)
-    postList.forEach(element => {
-        element.remove()
-    });
+  const postList = document.querySelectorAll("article");
+  Array.from(postList);
+  postList.forEach((element) => {
+    element.remove();
+  });
 }
 
 function createPosts(data) {
-    removePreviousPosts()
-      for (let i = data.length - 1; i >= 0; i--) {
-        
-      const newArticle = document.createElement('article');
-        
-      const post  = document.createElement('div');
-      post.classList.add("post");
-      post.textContent = data[i].message;
-  
-      newArticle.append(post);
+  removePreviousPosts();
+  for (let i = data.length - 1; i >= 0; i--) {
+    const newArticle = document.createElement("article");
 
-      if (data[i].gifUrl) {
-      
-        const gifContainer = document.createElement('div');
-        gifContainer.classList.add("postGifContainer")
+    const post = document.createElement("div");
+    post.classList.add("post");
+    post.textContent = data[i].message;
 
-        const img = document.createElement('img');
-        img.classList.add("post-gif");
-        img.src = data[i].gifUrl;
+    newArticle.append(post);
 
-        gifContainer.append(img)
-        
-        newArticle.append(gifContainer);
-      }
-  
-      const reactions = document.createElement('div');
-      reactions.classList.add("reactions");
-      const emojiBox = document.createElement('div');
-      emojiBox.id = "emoji-box";
-      const button = document.createElement('button');
-      button.classList.add("collapsible");
-  
+    if (data[i].gifUrl) {
+      const gifContainer = document.createElement("div");
+      gifContainer.classList.add("postGifContainer");
 
-      // ADD EMOJI ENTRIES 
-      const emojiEntries = Object.keys(data[i].reactions);
+      const img = document.createElement("img");
+      img.classList.add("post-gif");
+      img.src = data[i].gifUrl;
 
-      emojiEntries.forEach(emojiType => {
+      gifContainer.append(img);
 
-        const reactionDiv = document.createElement('div');
-        reactionDiv.classList.add(emojiType);
-        reactionDiv.classList.add("emoji");
-        
-        const pContainer = document.createElement("div");
-        pContainer.classList.add('pContainer');
-
-        const reactionCount = document.createElement('p');
-        reactionCount.classList.add(emojiType);
-        reactionCount.textContent = data[i].reactions[emojiType];
-
-        pContainer.append(reactionCount);
-        reactionDiv.append(pContainer);
-        emojiBox.append(reactionDiv);
-
-        
-      });
-  
-      reactions.append(emojiBox);
-      reactions.append(button);
-      newArticle.append(reactions);
-  
-      const comments = document.createElement('div');
-      comments.classList.add('comments');
-  
-      const headline = document.createElement("h4");
-      headline.textContent = "Comments";
-  
-      const addCommentBtn = document.createElement('button');
-      addCommentBtn.classList.add("add");
-      addCommentBtn.textContent = "+";
-    
-      comments.append(headline);
-      comments.append(addCommentBtn);
-  
-      if (!!(data[i].comments)) {
-        data[i].comments.forEach(comment => {
-            const currentComment = document.createElement("p");
-            currentComment.textContent = comment;
-            comments.append(currentComment);
-          });
-      } 
-
-      newArticle.append(comments);
-  
-  
-      newArticle.id = data[i].id;
-  
-      document.querySelector('main').append(newArticle);
-        
+      newArticle.append(gifContainer);
     }
-    
-    
-      
-    
-  }
 
-module.exports = {createPosts, removePreviousPosts};
+    const reactions = document.createElement("div");
+    reactions.classList.add("reactions");
+    const emojiBox = document.createElement("div");
+    emojiBox.id = "emoji-box";
+    const button = document.createElement("button");
+    button.classList.add("collapsible");
+
+    // ADD EMOJI ENTRIES
+    const emojiEntries = Object.keys(data[i].reactions);
+
+    emojiEntries.forEach((emojiType) => {
+      const reactionDiv = document.createElement("div");
+      reactionDiv.classList.add(emojiType);
+      reactionDiv.classList.add("emoji");
+
+      const pContainer = document.createElement("div");
+      pContainer.classList.add("pContainer");
+
+      const reactionCount = document.createElement("p");
+      reactionCount.classList.add(emojiType);
+      reactionCount.textContent = data[i].reactions[emojiType];
+
+      pContainer.append(reactionCount);
+      reactionDiv.append(pContainer);
+      emojiBox.append(reactionDiv);
+    });
+
+    reactions.append(emojiBox);
+    reactions.append(button);
+    newArticle.append(reactions);
+
+    const comments = document.createElement("div");
+    comments.classList.add("comments");
+
+    const headline = document.createElement("h4");
+    headline.textContent = "Comments";
+
+    const addCommentBtn = document.createElement("button");
+    addCommentBtn.classList.add("add");
+    addCommentBtn.textContent = "+";
+
+    comments.append(headline);
+    comments.append(addCommentBtn);
+
+    if (!!data[i].comments) {
+      data[i].comments.forEach((comment) => {
+        const currentComment = document.createElement("p");
+        currentComment.textContent = comment;
+        currentComment.style.marginTop = "2rem";
+        comments.append(currentComment);
+      });
+    }
+
+    newArticle.append(comments);
+
+    newArticle.id = data[i].id;
+
+    document.querySelector("main").append(newArticle);
+  }
+}
+
+module.exports = { createPosts, removePreviousPosts };
 
 },{}],2:[function(require,module,exports){
 // const { response } = require("../../server/app");
