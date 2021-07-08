@@ -423,6 +423,10 @@ article .comments .add {
     margin-right: 0.1rem;
   }
 
+  #charCounterPost {
+    padding-top: 0.2rem;
+  }
+
   .add-button,
   #addGif {
     height: 14%;
