@@ -1,51 +1,58 @@
 [
     {
         "id": 1,
-        "message": "I want to be famous",
-        "reactions": {"smile": 4, "celebrate": 1, "love": 3},
-        "comments": ["this is my post", "I liked it"]
+        "message": "Sang karaoke infront of total strangers!",
+        "reactions": {"smile": 27, "celebrate": 30, "love": 9},
+        "comments": ["🎤", "So brave", "I could never do something like that."],
+        "gifUrl": "https://media3.giphy.com/media/pQjS4C5Lx4UjS/giphy.gif?cid=ecf05e47et5mobuaqhuj60mwhfc1rsg9gail0fegel2p22o0&rid=giphy.gif&ct=g"
     },
     {
         "id": 2,
-        "message": "This is a placeholder thing",
-        "reactions": {"smile": 5, "celebrate": 3, "love": 5},
-        "comments": ["writing fake comments is hard", "I don't liked it"]
+        "message": "Got a B+ on my maths test! 🧠",
+        "reactions": {"smile": 14, "celebrate": 22, "love": 19},
+        "comments": ["Yeeeeeesss", "You did so well!"],
+        "gifUrl": null
     },
     {
         "id": 3,
-        "message": "I'm only here because I have nothing else to say.",
-        "reactions": {"smile": 12, "celebrate": 42, "love": 70},
-        "comments": ["fish"]
+        "message": "Exercised today for the first time in ages.",
+        "reactions": {"smile": 2, "celebrate": 5, "love": 9},
+        "comments": ["I wish I was as motivated as you, great work"],
+        "gifUrl": "https://media3.giphy.com/media/Ug2yhOti0XmTK/giphy.gif?cid=ecf05e47jn1g062renfovgpstt0v1yg4uzxfw92wrisnpmpd&rid=giphy.gif&ct=g"
     },
     {
         "id": 4,
-        "message": "I'm test data, nice to meet you.",
-        "reactions": {"smile": 5, "celebrate": 6, "love": 19},
-        "comments": ["you'll change me before we're live", "...right?"]
+        "message": "I had the last slice of Pizza 😈",
+        "reactions": {"smile": 22, "celebrate": 6, "love": 19},
+        "comments": ["I had my eye on it first!", "We can split it next time."],
+        "gifUrl": null
     },
     {
         "id": 5,
-        "message": "I am but test data",
-        "reactions": {"smile":23, "celebrate": 33, "love": 7},
-        "comments": ["This is not a comment"]
+        "message": "I survived another 3 hour meeting at work 🥳",
+        "reactions": {"smile":2, "celebrate": 4, "love": 5},
+        "comments": ["I wish all meetings were like this gif 😂"],
+        "gifUrl": "https://media2.giphy.com/media/eXTue7sCt6ZvG/giphy.gif?cid=ecf05e47skx0fkaqqocsquceuuwyxwulgp0po0j43gb5yzvy&rid=giphy.gif&ct=g"
     },
     {
         "id": 6,
-        "message": "Howdy",
+        "message": "I painted for the first time in a while.",
         "reactions": {"smile": 0, "celebrate": 39, "love": 2},
-        "comments": ["🏭", "I liked it"]
+        "comments": ["🏭", "I liked it"],
+        "gifUrl": "https://media3.giphy.com/media/1FXYMTuKX91hS/giphy.gif?cid=ecf05e47bv8gsg3dxuws343w9yoy0sx5a5kng5g4xuumhxr2&rid=giphy.gif&ct=g"
     },
     {
         "id": 7,
-        "message": "Boom",
-        "reactions": {"smile": 1, "celebrate": 19, "love": 1},
-        "comments": ["Love it."]
+        "message": "Today I went for a long walk with a friend I haven't seen in a while.",
+        "reactions": {"smile": 3, "celebrate": 2, "love": 10},
+        "comments": ["Love it."],
+        "gifUrl": null
     },
     {
         "id": 8,
-        "message": "I want to be famous too",
-        "reactions": {"smile":7, "celebrate": 12, "love": 17},
-        "comments": ["<3"],
-        "gifUrl": "https://media2.giphy.com/media/TdfyKrN7HGTIY/giphy.gif?cid=47e265ec23057s8omse8hlg5pkynxeelp006pm32pedlli9c&rid=giphy.gif&ct=g"
+        "message": "I finished reading my book",
+        "reactions": {"smile":10, "celebrate": 12, "love": 4},
+        "comments": ["What were you reading?", "I love a good book."],
+        "gifUrl": "https://media3.giphy.com/media/IzihZRMnD33J4DsLT1/giphy.gif?cid=ecf05e4768gj8slrg5cgkgtg4ygnkr6qonpbeokl3ttv5aah&rid=giphy.gif&ct=g"
     }
 ]
