@@ -400,12 +400,17 @@ article .comments .add {
 
   section {
     width: 100%;
-    height: 40%;
+    height: 60%;
     margin: auto;
   }
 
+  section #form {
+    padding-top: 2rem;
+    height: fit-content;
+  }
+
   section form {
-    height: 60%;
+    height: 50%;
     border: 4px solid lightgray;
     border-radius: 5px 5px 0 0;
   }
@@ -429,7 +434,7 @@ article .comments .add {
 
   .add-button,
   #addGif {
-    height: 14%;
+    height: 17%;
   }
 
   article {
