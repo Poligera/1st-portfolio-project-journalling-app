@@ -70,6 +70,15 @@ header h5 {
   padding-bottom: 1rem;
 }
 
+.overlay button:hover {
+  background-color: antiquewhite;
+  font-weight: bold;
+}
+
+.overlay input:hover {
+  background-color: azure;
+}
+
 #gifPopup label {
   color: white;
   font-weight: bold;
@@ -178,7 +187,7 @@ textarea:focus {
 }
 #addGif {
   height: 35px;
-  background-color: rgb(204, 235, 240);
+  background-color: rgba(188, 224, 196, 0.952);
 
   margin-top: 0.2rem;
 
