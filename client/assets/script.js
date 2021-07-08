@@ -29,7 +29,11 @@ addGif.addEventListener("click", (e) => {
 const submitButton = document.getElementById("giphySearchButton");
 
 submitButton.addEventListener("click", (e) => {
-  const search = document.getElementById("gifSearch").value;
+  let search = document.getElementById("gifSearch").value;
+
+  //Replace spaces in the search term with a plus so the giphy api can handle multi word entries.
+
+  search = search.replace(/\s/g, "+");
 
   fetch(`${apiDomain}gifs/${search}`)
     .then((response) => response.json())
