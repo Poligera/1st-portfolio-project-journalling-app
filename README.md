@@ -1,8 +1,5 @@
-# Put logo here.
+![Logo](./client/assets/images/readme-header.png)
 
-## contents.
-- [Put logo here.](#put-logo-here)
-  - [contents.](#contents)
     - [About our app.](#about-our-app)
     - [Installation & Usage.](#installation--usage)
       - [Usage](#usage)

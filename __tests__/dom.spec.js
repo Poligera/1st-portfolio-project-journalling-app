@@ -7,7 +7,7 @@ const html = fs.readFileSync(path.resolve(__dirname, '../client/index.html'), 'u
 
 describe('head testing', () => {
 
-    //===== use this if you're bring in an entire file
+    //===== use this if you're bring in an entire file =====//
 
     beforeEach(() => {
         document.documentElement.innerHTML = html.toString()
@@ -65,8 +65,6 @@ describe('head testing', () => {
         let src = javascriptLink.getAttribute("src");
         expect(src).toBe("assets/bundle.js");
     });
-
-    
 })
 
 
@@ -76,7 +74,7 @@ describe("body testing", () => {
         document.documentElement.innerHTML = `<body><main><article><article></main></body>`;
     });
     
-    test("add posts should produce the right html structure", () => {
+    test("create post should add an article to the dom", () => {
         const data = [{
             "id": 1,
             "message": "I want to be famous",
